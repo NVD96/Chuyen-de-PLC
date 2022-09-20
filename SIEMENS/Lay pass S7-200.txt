@@ -1,0 +1,142 @@
+Private Sub Form_Load()
+
+    With MSComm1
+        .CommPort = 1
+        .Settings = "9600,e,8,1"
+        .InputLen = 0
+        .RThreshold = 1
+        .InputMode = comInputModeBinary
+    End With
+    If MSComm1.PortOpen = False Then
+        MSComm1.PortOpen = True
+    End If
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    If MSComm1.PortOpen = True Then
+        MSComm1.PortOpen = False
+    End If
+End Sub
+
+Function ppird(readaddress As String)
+
+    Dim i As Integer, temp As Integer
+    Dim sendbyte(32) As Byte
+    sendbyte(0) = &H68
+    sendbyte(1) = &H1B
+    sendbyte(2) = &H1B
+    sendbyte(3) = &H68
+    sendbyte(4) = &H2
+    sendbyte(5) = &H0
+    sendbyte(6) = &H6C
+    sendbyte(7) = &H32
+    sendbyte(8) = &H1
+    sendbyte(9) = &H0
+    sendbyte(10) = &H0
+    sendbyte(11) = &H0
+    sendbyte(12) = &H0
+    sendbyte(13) = &H0
+    sendbyte(14) = &HE
+    sendbyte(15) = &H0
+    sendbyte(16) = &H0
+    sendbyte(17) = &H4
+    sendbyte(18) = &H1
+    sendbyte(19) = &H12
+    sendbyte(20) = &HA
+    sendbyte(21) = &H10
+    sendbyte(22) = &H4
+    sendbyte(23) = &H0
+    sendbyte(24) = &H1
+    sendbyte(25) = &H0
+    sendbyte(26) = &H1
+    sendbyte(27) = &H84
+    sendbyte(28) = &H0
+    sendbyte(29) = (readaddress * 8) \ 256
+    sendbyte(30) = (readaddress * 8) Mod 256
+    sendbyte(31) = &H0
+    sendbyte(32) = &H16
+    For i = 4 To 30
+        temp = temp + sendbyte(i)
+    Next
+    sendbyte(31) = temp Mod 256
+    
+    ppird = sendbyte
+
+End Function
+
+Function ppiww(adressx As Integer, datax As Integer)
+
+    Dim i As Integer, temp As Integer
+    Dim sendbyte(38) As Byte
+    sendbyte(0) = &H68
+    sendbyte(1) = &H21
+    sendbyte(2) = &H21
+    sendbyte(3) = &H68
+    sendbyte(4) = &H2
+    sendbyte(5) = &H0
+    sendbyte(6) = &H6C
+    sendbyte(7) = &H32
+    sendbyte(8) = &H1
+    sendbyte(9) = &H0
+    sendbyte(10) = &H0
+    sendbyte(11) = &H0
+    sendbyte(12) = &H0
+    sendbyte(13) = &H0
+    sendbyte(14) = &HE
+    sendbyte(15) = &H0
+    sendbyte(16) = &H6
+    sendbyte(17) = &H5
+    sendbyte(18) = &H1
+    sendbyte(19) = &H12
+    sendbyte(20) = &HA
+    sendbyte(21) = &H10
+    sendbyte(22) = &H4
+    sendbyte(23) = &H0
+    sendbyte(24) = &H1
+    sendbyte(25) = &H0
+    sendbyte(26) = &H1
+    sendbyte(27) = &H84
+    sendbyte(28) = &H0
+    sendbyte(29) = (adressx * 8) \ 256
+    sendbyte(30) = (adressx * 8) Mod 256
+    sendbyte(31) = &H0
+    sendbyte(32) = &H4
+    sendbyte(33) = &H0
+    sendbyte(34) = &H10
+    sendbyte(35) = datax \ 256
+    sendbyte(36) = datax Mod 256
+    sendbyte(37) = &H0
+    sendbyte(38) = &H16
+    For i = 4 To 36
+        temp = temp + sendbyte(i)
+    Next
+    sendbyte(37) = temp Mod 256
+    ppiww = sendbyte
+    
+End Function
+
+Private Sub MSComm1_OnComm()
+Dim rcvtemp(5) As Byte
+Dim rcv_array() As Byte
+Dim yy As Long
+    Select Case MSComm1.CommEvent
+        Case comEvReceive
+            rcv_array = MSComm1.Input
+            If rcv_array(0) = &HE5 Then
+                MSComm1.RThreshold = 25
+                rcvtemp(0) = &H10
+                rcvtemp(1) = &H2
+                rcvtemp(2) = &H0
+                rcvtemp(3) = &H5C
+                rcvtemp(4) = &H5E
+                rcvtemp(5) = &H16
+                MSComm1.Output = rcvtemp
+            ElseIf rcv_array(0) = &H68 And rcv_array(1) = &H17 Then
+                yy = Val(rcv_array(25)) * 256 + Val(rcv_array(26))
+                Text1 = yy
+            Else
+                MSComm1.RThreshold = 1
+            End If
+        End Select
+    watchtimer.Enabled = False
+End Sub

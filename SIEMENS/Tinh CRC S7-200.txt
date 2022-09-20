@@ -1,0 +1,32 @@
+Address location in the password can be arbitrary, eg // Адрес местонахождения в пароле может быть произвольным, например:
+Address 1E75 - protection level // уровень защиты (01-03)
+Address 1E76-1E7D – crypted password // зашифрованный пароль
+(1E76) = 1st char // 1-й символ
+(1Е77) = 2nd char // 2-й символ
+(1Е76) XOR (1E78) = char 3//3-й символ
+(1Е77) XOR (1E79) = char 4//4-й символ
+(1Е78) XOR (1E7A) = char 5//5-й символ
+(1Е79) XOR (1E7B) = char 6//6-й символ
+(1Е7A) XOR (1E7C) = char 7// 7-й символ
+(1Е7B) XOR (1E7D) = char 8//8-й символ
+Example // Пример: Содержимое адресов
+1Е75-1Е7D: 03 FC EF 04 07 EF F9 0C 6F
+Converted code // Преобразованный код :
+FC EF F8 E8 EB FE E3 96
+Password // Символьный пароль:
+V E R B A T I <
+
+
+
+Ну нифига себе, накуролесили, всё гораздо проще!
+LenFW - Length Word / длина в WORD
+Buff - buffer white S7-Password /буфер в памяти. В нём лежит зашифрованный S7-Password
+
+for(int i = LenFW - 1; i>0; i--)
+{
+*(Buff+i) ^= *(Buff+i-1)^0xAAAA;
+}
+*Buff ^= 0xAAAA;
+
+Voila !
+Вот и всё! Вуаля!
