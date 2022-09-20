@@ -1,3 +1,9 @@
+http://plc4good.org.ua/
+
+///////////////
+//////////
+///////////
+
 Address location in the password can be arbitrary, eg // Адрес местонахождения в пароле может быть произвольным, например:
 Address 1E75 - protection level // уровень защиты (01-03)
 Address 1E76-1E7D – crypted password // зашифрованный пароль
@@ -17,7 +23,8 @@ Password // Символьный пароль:
 V E R B A T I <
 
 
-
+///////////////////
+////////////
 Ну нифига себе, накуролесили, всё гораздо проще!
 LenFW - Length Word / длина в WORD
 Buff - buffer white S7-Password /буфер в памяти. В нём лежит зашифрованный S7-Password
