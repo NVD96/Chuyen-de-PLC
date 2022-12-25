@@ -1,0 +1,94 @@
+int i;
+#define RTS 22
+#define CTS 23
+
+void setup(){
+  Serial.begin(9600);
+  Serial1.begin(9600);
+  Serial2.begin(9600);
+  i = 0;
+  pinMode(RTS,OUTPUT);
+  pinMode(CTS,INPUT);
+  digitalWrite(RTS,HIGH);
+  Serial.println("Starting");
+  delay(1000);
+  digitalWrite(RTS,LOW);
+  Serial.println("RTS is now low");
+  
+
+}
+
+void loop(){
+  int state;
+  state = digitalRead(CTS);
+  
+  if(state == 1){
+    Serial.println("We have gone High");
+  }
+  //Serial.println(state);
+}
+///////////////////////////////////////////
+////////////////////////////////////////////
+///////////////////////////////////////
+/*
+
+Setup for hardware flow control (RTS/CTS) on SAMD21 boards 
+
+On SAMD21 SparkFun breakout board 
+D0 is CTS 
+D1 is RTS 
+D3 is RX 
+D4 is TX
+
+Does a loop back to the serial monitor.  Jumper pins D3 and D4.  You can toggle the RTS and CTS states manually to test desired flow control.
+*/
+
+#include <Arduino.h>
+#include "wiring_private.h" // pinPeripheral() function
+
+Uart mySerial (&sercom0, 4, 3, SERCOM_RX_PAD_1, UART_TX_RTS_CTS_PAD_0_2_3, 0, 1 ); // Create the new UART instance assigning pins to the functions necessary.
+
+void setup() {
+  // initialize both serial ports:
+  Serial.begin(115200); // start USB serial monitor on SAMD21 boards
+  mySerial.begin(115200); // Start our Serial port with flow control
+  pinPeripheral(3, PIO_SERCOM);
+  pinPeripheral(4, PIO_SERCOM);
+  pinPeripheral(0, PIO_SERCOM);
+  pinPeripheral(1, PIO_SERCOM);
+
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+
+  Serial.println("Startup");
+
+}
+
+void loop() {   
+
+
+  if (Serial.available()) {
+    int inByte = Serial.read();
+    mySerial.write(inByte);
+  }
+  if (mySerial.available()) {
+    int inByte = mySerial.read();
+    Serial.write(inByte);
+  }
+
+}
+
+void SERCOM0_Handler()
+{
+  mySerial.IrqHandler();
+}
+////////////////////////////////////////////
+////////////////////////////////////////////
+///////////////////////////////////////////
+digitalWrite(RTSPin, HIGH);  // Indicate we have data to transmit
+while (digitalRead(CTSPin) != HIGH)
+   ;  //block waiting for other side.
+Serial.print(mystuff);  // Send the data.
+Serial.flush(); // wait for transmit to finish.
+digitalWrite(RTSPin, LOW);
