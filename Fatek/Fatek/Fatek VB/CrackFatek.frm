@@ -3,14 +3,96 @@ Object = "{648A5603-2C6E-101B-82B6-000000000014}#1.1#0"; "MSCOMM32.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00FF0000&
    Caption         =   "FATEK (Group: AE Tu Dong Hoa)"
-   ClientHeight    =   3585
+   ClientHeight    =   4440
    ClientLeft      =   7995
    ClientTop       =   4710
    ClientWidth     =   7875
    Icon            =   "CrackFatek.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   3585
+   ScaleHeight     =   4440
    ScaleWidth      =   7875
+   Begin VB.Timer Timer1 
+      Interval        =   10
+      Left            =   6960
+      Top             =   5040
+   End
+   Begin VB.CommandButton btnCMD2 
+      BackColor       =   &H0000FFFF&
+      Caption         =   "CLEAR"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   4920
+      Style           =   1  'Graphical
+      TabIndex        =   15
+      Top             =   5040
+      Width           =   1935
+   End
+   Begin VB.CommandButton btnCMD1 
+      BackColor       =   &H0000FFFF&
+      Caption         =   "Ghi de"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   2640
+      Style           =   1  'Graphical
+      TabIndex        =   14
+      Top             =   3600
+      Width           =   1935
+   End
+   Begin VB.CommandButton btnCMD 
+      BackColor       =   &H0000FFFF&
+      Caption         =   "10000080"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   120
+      Style           =   1  'Graphical
+      TabIndex        =   13
+      Top             =   3600
+      Width           =   1935
+   End
+   Begin VB.CommandButton btnDisconnect 
+      BackColor       =   &H0000FFFF&
+      Caption         =   "Disconnect"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   400
+      Left            =   2640
+      Style           =   1  'Graphical
+      TabIndex        =   12
+      Top             =   3000
+      Visible         =   0   'False
+      Width           =   1935
+   End
    Begin VB.CommandButton btnSAIMK 
       BackColor       =   &H0000FFFF&
       Caption         =   "So lan sai MK"
@@ -80,7 +162,7 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00FF0000&
-      Height          =   3135
+      Height          =   3975
       Left            =   4680
       MultiLine       =   -1  'True
       ScrollBars      =   2  'Vertical
@@ -211,8 +293,9 @@ Begin VB.Form Form1
       _ExtentY        =   1005
       _Version        =   393216
       DTREnable       =   -1  'True
-      InputLen        =   1024
-      RThreshold      =   66
+      InBufferSize    =   2048
+      InputLen        =   2048
+      RThreshold      =   1
       ParitySetting   =   2
       DataBits        =   7
       SThreshold      =   1
@@ -303,14 +386,142 @@ MSComm1.Output = ackk
 End Sub
 
 
+Private Sub btnCMD_Click()
+
+Dim ackk(19) As Byte
+Dim i, tinhtoan, crc1, crc2 As Variant
+
+'If Val(Text3.Text) = 8 Then
+    'MSComm1.RThreshold = 265    ' 252 byte data
+  
+'End If
+'If Val(Text3.Text) = 6 Then
+    'MSComm1.RThreshold = 201  ' 188 byte data
+ 
+'End If
+'If Val(Text3.Text) = 4 Then
+    'MSComm1.RThreshold = 137 ' 124 byte data
+   
+'End If
+'If Val(Text3.Text) = 2 Then
+    'MSComm1.RThreshold = 73  '70 byte data
+   
+'End If
+
+tinhtoan = 0
+ackk(0) = &H2
+ackk(1) = &H30
+ackk(2) = &H31
+ackk(3) = &H31
+ackk(4) = &H31
+ackk(5) = a1
+ackk(6) = a2
+ackk(7) = a3
+ackk(8) = a4
+ackk(9) = &H31
+ackk(10) = &H30 'Asc(Val(Text3.Text))
+ackk(11) = &H30
+ackk(12) = &H30
+ackk(13) = &H30
+ackk(14) = &H30
+ackk(15) = &H38
+ackk(16) = &H30
+
+For i = 0 To 16
+tinhtoan = tinhtoan + ackk(i)
+Next
+crc1 = Asc(Mid(Hex(tinhtoan), Len(Hex(tinhtoan)) - 1, 1))
+crc2 = Asc(Mid(Hex(tinhtoan), Len(Hex(tinhtoan)), 1))
+ackk(17) = crc1
+ackk(18) = crc2
+ackk(19) = &H3
+MSComm1.Output = ackk
+
+
+End Sub
+
+Private Sub btnCMD1_Click()
+
+Dim ackk(166) As Byte
+Dim i, tinhtoan, crc1, crc2 As Variant
+Dim j As Integer
+
+tinhtoan = 0
+ackk(0) = &H2
+ackk(1) = &H30
+ackk(2) = &H31
+ackk(3) = &H31
+ackk(4) = &H33
+ackk(5) = a1
+ackk(6) = a2
+ackk(7) = a3
+ackk(8) = a4
+ackk(9) = &H31
+ackk(10) = &H30
+ackk(11) = &H38
+ackk(12) = &H30
+ackk(13) = &H30
+ackk(14) = &H30
+ackk(15) = &H38
+ackk(16) = &H30
+
+ackk(17) = &H34
+ackk(18) = &H34
+ackk(19) = &H36
+ackk(20) = &H39
+
+For j = 21 To 159
+    ackk(j) = &H46
+Next
+
+ackk(160) = &H32
+ackk(161) = &H31
+ackk(162) = &H30
+ackk(163) = &H31
+
+For i = 0 To 163
+tinhtoan = tinhtoan + ackk(i)
+Next
+crc1 = Asc(Mid(Hex(tinhtoan), Len(Hex(tinhtoan)) - 1, 1))
+crc2 = Asc(Mid(Hex(tinhtoan), Len(Hex(tinhtoan)), 1))
+ackk(164) = crc1
+ackk(165) = crc2
+ackk(166) = &H3
+MSComm1.Output = ackk
+
+End Sub
+
+Private Sub btnCMD2_Click()
+
+Dim ackk(7) As Byte
+
+
+ackk(0) = &H2
+ackk(1) = &H30
+ackk(2) = &H31
+ackk(3) = &H31
+ackk(4) = &H32
+ackk(5) = &H43
+ackk(6) = &H36
+ackk(7) = &H3
+
+MSComm1.Output = ackk
+
+End Sub
+
 Private Sub btnConnect_Click()
-MSComm1.CommPort = Val(Text1.Text)
-     If MSComm1.PortOpen = True Then
-        MsgBox ("Port Open")
-    End If
     If MSComm1.PortOpen = False Then
+        MSComm1.CommPort = Val(Text1.Text)
         MSComm1.PortOpen = True
+        btnDisconnect.Visible = True
+        btnConnect.Visible = False
     End If
+End Sub
+
+Private Sub btnDisconnect_Click()
+    btnConnect.Visible = True
+    MSComm1.PortOpen = False
+    btnDisconnect.Visible = False
 End Sub
 
 Private Sub btnInit_Click()
@@ -331,6 +542,7 @@ End Sub
 
 Private Sub btnMANHAY_Click()
 Dim manhay(7) As Byte
+'MSComm1.RThreshold = 66
 manhay(0) = &H2
 manhay(1) = &H30
 manhay(2) = &H31
@@ -418,31 +630,43 @@ End Sub
 
 Private Sub MSComm1_OnComm()
 Dim rev_c As String
-Dim manhay As Long
+Dim revceive_data As String
+Dim manhay, dem As Long
 Dim ketqua As String
 
     Select Case MSComm1.CommEvent
-        Case comEvReceive
+        Case comEvSend
             Text2.Text = ""
-            Text2.Text = MSComm1.Input
-            rev_c = Mid(Text2, 2, 4)
-            'If rev_c = "0100" Then
-            '    manhay = "&H" & Mid(Text2, 60, 4)
-            '    ketqua = Hex(65535 - manhay)
-             '   If Len(ketqua) < 4 Then
-             '   a1 = &H30
-             '   a2 = Asc(Mid(ketqua, 1, 1))
-              '  a3 = Asc(Mid(ketqua, 2, 1))
-              '  a4 = Asc(Mid(ketqua, 3, 1))
-              '  Else
-              '  a1 = Asc(Mid(ketqua, 1, 1))
-             '   a2 = Asc(Mid(ketqua, 2, 1))
-             '   a3 = Asc(Mid(ketqua, 3, 1))
-             '   a4 = Asc(Mid(ketqua, 4, 1))
-             '   End If
-                'MsgBox (a1)
-            'End If
+        Case comEvReceive
+            Text2.Text = Text2.Text + MSComm1.Input
         End Select
 End Sub
 
+Private Sub Timer1_Timer()
+Dim rev_c As String
+Dim revceive_data As String
+Dim manhay, dem As Long
+Dim ketqua As String
 
+ If Len(Text2.Text) = 66 Then
+ 
+              
+         manhay = "&H" & Mid(Text2.Text, 60, 4)
+         ketqua = Hex(65535 - manhay)
+         If Len(ketqua) < 4 Then
+                a1 = &H30
+                a2 = Asc(Mid(ketqua, 1, 1))
+                a3 = Asc(Mid(ketqua, 2, 1))
+                a4 = Asc(Mid(ketqua, 3, 1))
+         Else
+                a1 = Asc(Mid(ketqua, 1, 1))
+                a2 = Asc(Mid(ketqua, 2, 1))
+                a3 = Asc(Mid(ketqua, 3, 1))
+                a4 = Asc(Mid(ketqua, 4, 1))
+         End If
+
+ End If
+
+
+
+End Sub
