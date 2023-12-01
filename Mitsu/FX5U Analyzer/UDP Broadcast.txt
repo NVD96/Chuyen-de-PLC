@@ -1,0 +1,235 @@
+I found a code Like This:
+
+' server side
+
+Private Sub Command1_Click()
+On Error Resume Next
+For x = 420 To 440
+Winsock1.Close
+Winsock1.RemoteHost = "255.255.255.255"
+Winsock1.RemotePort = x
+Winsock1.SendData winsock1.LocalIp
+Next
+Timer1.Enabled = True
+
+End Sub
+
+Private Sub Form_Load()
+Winsock1.Close
+Me.Caption = "BoardCast Server"
+End Sub
+
+Private Sub Timer1_Timer()
+Command1_Click
+End Sub
+
+
+' Client Side
+
+Dim IP As Integer
+Private Sub Form_Load()
+Me.Caption = "BoardCast Client"
+IP = 420
+On Error GoTo errIP
+
+Winsock1.Bind IP
+Exit Sub
+errIP:
+IPIncrease
+Exit Sub
+End Sub
+
+Private Sub Winsock1_DataArrival(ByVal bytesTotal As Long)
+On Error GoTo errIP
+Dim strData As String
+Winsock1.GetData strData
+Text1.Text = strData ' <-----------Here My problem, listen only 1 IP if any another aplication winsock server run, his IP showed too at here(text1.text) 
+
+Exit Sub
+errIP:
+IPIncrease
+End Sub
+
+Sub IPIncrease()
+On Error GoTo errIP
+IP = IP + 1
+Winsock1.Close
+Winsock1.Bind IP
+Exit Sub
+errIP:
+IPIncrease
+
+End Sub
+
+/////////////////////////////////
+/////////////////////////////
+///////////////
+
+Private Const DiscoveryPort As Long = 4111
+Private Const ResponsePort As Long = 4112
+
+Private Const TCP_ListenPort As Long = 4511
+
+Private Const DiscoveryPortClient As Long = 4112 ' ports are reversed from the server
+Private Const ResponsePortClient As Long = 4111
+Private ServerIP As String
+Private ServerPort As Long
+
+
+
+Private Sub createGame_Click()
+If txtplayername = "" Then
+MsgBox ("Enter Name first")
+Else
+' Prepare UDP Broadcasting and UDP Listeing
+    With SckUDP
+        .Close
+        .Protocol = sckUDPProtocol
+        .RemoteHost = "255.255.255.255"
+        .LocalPort = DiscoveryPort
+        .RemotePort = ResponsePort
+        
+        ' start listening for UDP packets
+        .Bind DiscoveryPort
+    End With
+    
+ListenTCP
+End If
+Timer2.Enabled = True
+frmInGame.Show
+End Sub
+Private Sub ListenTCP()
+    With SckTCP
+        .Close
+        .LocalPort = TCP_ListenPort
+        
+        ' Start listening for TCP connections
+        .Listen
+        
+    End With
+End Sub
+
+Private Sub lstGame_Click()
+'Dim i As Integer
+'For i = 0 To 7
+If lstGame.Selected(0) = True Then
+lblmessageresult.Caption = txtplayername.Text
+Timer1.Enabled = False
+Timer2.Enabled = False
+End If
+'Next i
+End Sub
+
+Private Sub SckTCP_Close()
+SckTCP.Close
+ListenTCP
+End Sub
+Private Sub SckTCP_ConnectionRequest(ByVal requestID As Long)
+SckTCP.Close
+SckTCP.Accept requestID
+End Sub
+Private Sub JoinGame_Click()
+If lstGame.ListCount < 1 Then
+lblmessageresult.Caption = "Can't Join the Game!.^_^.!"
+Else
+    If lstGame.Selected(0) = True Then
+    sockfrm1.Protocol = sckUDPProtocol
+    sockfrm1.RemoteHost = "255.255.255.255"
+    sockfrm1.LocalPort = DiscoveryPortClient
+    sockfrm1.RemotePort = ResponsePortClient
+    sockfrm1.Bind DiscoveryPortClient
+
+    ' Broadcast, and ask where the server is
+    sockfrm1.SendData "CLIENT|What's your IP ?"
+
+    Timer1.Enabled = True
+    Timer2.Enabled = False
+    JoinGame.Enabled = False
+    End If
+End If
+End Sub
+Private Sub loadhost_Click()
+formingame = frmInGame.lvlplayer1.Caption
+If Timer2.Enabled = False Then
+lblmessageresult.Caption = "No one can create the Game!.!"
+Else
+    If lstGame.ListCount < 1 Then
+    lblmessageresult.Caption = "no server found"
+        Else
+            If lstGame.Selected(0) = True Then
+        sockfrm1.Protocol = sckUDPProtocol
+        sockfrm1.RemoteHost = "255.255.255.255"
+        sockfrm1.LocalPort = DiscoveryPortClient
+        sockfrm1.RemotePort = ResponsePortClient
+        sockfrm1.Bind DiscoveryPortClient
+
+        ' Broadcast, and ask where the server is
+        sockfrm1.SendData "CLIENT|What's your IP ?"
+
+        Timer1.Enabled = True
+        Timer2.Enabled = False
+        End If
+    End If
+lstGame.AddItem
+'lstGame.AddItem txtplayername.Text
+End If
+End Sub
+Private Sub Form_Load()
+
+Timer1.Enabled = False
+Timer2.Enabled = False
+End Sub
+Private Sub SckUDP_DataArrival(ByVal bytesTotal As Long)
+Dim MSG As String
+    
+    ' Received message from client
+    SckUDP.GetData MSG, vbString
+    
+    ' Check if message is from a "friendly" application (our client application)
+    If MSG = "CLIENT|What's your IP ?" Then
+        ' Broadcast back our IP and TCP port number
+        SckUDP.SendData "SERVER|" & SckUDP.LocalIP & "," & TCP_ListenPort
+    End If
+    
+End Sub
+Private Sub sockfrm1_DataArrival(ByVal bytesTotal As Long)
+    Dim MSG As String
+
+    ' Received message from server
+    sockfrm1.GetData MSG, vbString
+
+If MSG Like "SERVER|*" Then ' Received message from server
+        ServerIP = Split(Split(MSG, "|")(1), ",")(0)
+        ServerPort = Val(Split(Split(MSG, "|")(1), ",")(1))
+        
+        If Len(ServerIP) > 0 And ServerPort > 0 Then
+            ConnectToServer
+        End If
+        End If
+End Sub
+Private Sub ConnectToServer()
+    With sockfrm1TCP
+        .Close
+        .RemoteHost = ServerIP
+        .RemotePort = ServerPort
+        .Connect
+    End With
+End Sub
+Private Sub Timer1_Timer()
+Dim TmpStrr As String
+    
+    TmpStrr = "Client - " & Choose(sockfrm1TCP.State + 1, "Closed", "Open", "Listening", "Connection pending", "Resolving host", "Host resolved", "Connecting", "Connected", "Server is disconnecting", "Error")
+    
+    If lblmessageresult.Caption <> TmpStrr Then lblmessageresult.Caption = TmpStrr
+    
+End Sub
+Private Sub Timer2_Timer()
+Dim TmpStr As String
+    
+    TmpStr = "Server - " & Choose(SckTCP.State + 1, "Closed", "Open", "Listening", "Connection pending", "Resolving host", "Host resolved", "Connecting", "Connected", "Server is disconnecting", "Error")
+    
+    If lblmessageresult.Caption <> TmpStr Then lblmessageresult.Caption = TmpStr
+End Sub
+Private Sub Cancel_Click()
+End
+End Sub

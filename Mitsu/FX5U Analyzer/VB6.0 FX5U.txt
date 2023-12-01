@@ -1,0 +1,158 @@
+Option Explicit
+
+
+Private Sub btn_Direct_Click()
+Text1.Text = "5a000001"
+btn_send_Click
+End Sub
+
+Private Sub btn_IP_Click()
+
+Text1.Text = "57010000001111070000ffff030000fe03000052001c0a1614000000000000000000000000000000000000000004110000000000000000000000000000020000000000000200002100422700000000000000000000000021004327000000000000000000000000"
+btn_send_Click
+Timer2.Enabled = True
+Text1.Text = ""
+
+End Sub
+
+Private Sub btn_Run_Click()
+
+Text1.Text = "57010000001111070000ffff030000fe03000022001c0a1614000000000000000000000000000000000000000010010a00000001000000"
+btn_send_Click
+Text1.Text = ""
+
+End Sub
+
+Private Sub btn_send_Click()
+
+Winsock1.RemoteHost = "255.255.255.255"
+Winsock1.RemotePort = 5560
+
+Dim gui() As Byte
+Dim i, j As Integer
+Dim strHex As String
+Dim Hexdata As Byte
+'Text2.Text = ""
+
+
+If Len(Text1.Text) Mod 2 = 0 Then
+
+ReDim gui(Len(Text1.Text) / 2 - 1)
+i = 1
+j = 0
+    Do Until i > Len(Text1.Text)
+    strHex = UCase(Mid(Text1.Text, i, 2))
+    Hexdata = Val("&H" & strHex)
+    gui(j) = Hexdata
+    i = i + 2
+    j = j + 1
+    Loop
+ 
+Winsock1.SendData gui
+End If
+
+End Sub
+
+Private Sub btn_Stop_Click()
+
+Text1.Text = "57010000001111070000ffff030000fe03000020001c0a1614000000000000000000000000000000000000000010020a0000000100"
+btn_send_Click
+Text1.Text = ""
+
+End Sub
+
+Private Sub btn_Yoff_Click()
+
+Text1.Text = "57010000001111070000ffff030000fe03000044001c0a1614000000000000000000000000000000000000000014110a000000000000000000000000000000010000010000110000000000000000001000c001000000000000"
+btn_send_Click
+Text1.Text = ""
+btn_Yoff.Visible = False
+btn_Yon.Visible = True
+
+End Sub
+
+Private Sub btn_Yon_Click()
+
+Text1.Text = "57010000001111070000ffff030000fe03000044001c0a1614000000000000000000000000000000000000000014110a000000000000000000000000000000010000010000110000000000000000001000c0010000ffffffff"
+btn_send_Click
+Text1.Text = ""
+btn_Yon.Visible = False
+btn_Yoff.Visible = True
+
+End Sub
+
+Private Sub Form_Load()
+Timer1.Enabled = True
+Winsock1.Bind
+Label4.Caption = Winsock1.State
+Label3.Caption = "LOCAL IP: " & Winsock1.LocalIP
+End Sub
+
+
+Private Sub Timer1_Timer()
+Dim typePLC As String
+Dim i As Integer
+
+If Mid(Text3.Text, 1, 2) = "DA" And Mid(Text3.Text, 7, 4) = "0114" Then
+Text1.Text = "57010000001111070000ffff030000fe03000020001c0a161400000000000000000000000000000000000000000121010000000001"
+btn_send_Click
+End If
+
+If Mid(Text3.Text, 1, 2) = "DA" And Mid(Text3.Text, 7, 4) = "0101" Then
+Text1.Text = "5a000011"
+btn_send_Click
+End If
+
+If Mid(Text3.Text, 1, 2) = "DA" And Mid(Text3.Text, 7, 4) = "1103" Then
+Text1.Text = "57010000001111070000ffff030000fe03000020001c0a161400000000000000000000000000000000000000000121010000000001"
+btn_send_Click
+
+End If
+
+If Mid(Text3.Text, 1, 4) = "D701" Then
+
+For i = 107 To 129 Step 2
+typePLC = typePLC + Chr(Val(("&H" & Mid(Text3.Text, i, 2))))
+Next
+
+Label6.Caption = "Connected PLC " & typePLC
+Text1.Text = ""
+Timer1.Enabled = False
+End If
+
+End Sub
+
+Private Sub Timer2_Timer()
+
+Dim plcIP As Integer
+
+If Mid(Text3.Text, 1, 2) = "D7" And Mid(Text3.Text, 39, 2) = "26" And Mid(Text3.Text, 95, 4) = "0411" Then
+
+Label5.Caption = "PLC IP: " & Val(("&H" & Mid(Text3.Text, 117, 2))) & "." & Val(("&H" & Mid(Text3.Text, 115, 2))) & "." & Val(("&H" & Mid(Text3.Text, 113, 2))) & "." & Val(("&H" & Mid(Text3.Text, 111, 2)))
+Timer2.Enabled = False
+
+End If
+
+End Sub
+
+Private Sub Winsock1_DataArrival(ByVal bytesTotal As Long)
+Text3.Text = ""
+Dim sData() As Byte
+Dim i As Integer
+Text2.Text = Text2.Text + ":"
+
+For i = 0 To bytesTotal - 1
+Winsock1.GetData sData, vbByte
+Text3.Text = Text3.Text & Right$("0" & Hex$(sData(i)), 2)
+Text2.Text = Text2.Text & Right$("0" & Hex$(sData(i)), 2) & " "
+Next
+
+Text2.Text = Text2.Text & vbCrLf
+End Sub
+
+Private Sub Winsock1_Error(ByVal Number As Integer, Description As String, ByVal Scode As Long, ByVal Source As String, ByVal HelpFile As String, ByVal HelpContext As Long, CancelDisplay As Boolean)
+MsgBox Description
+End Sub
+
+
+
