@@ -1,0 +1,480 @@
+Để lập trình gửi gói tin PROFINET DCP, bạn cần làm theo các bước sau:
+
+1. Xác định địa chỉ IP và MAC address của thiết bị cụ thể mà bạn muốn gửi gói tin DCP đến.
+
+2. Tạo một RAW socket để gửi gói tin. Bạn có thể sử dụng các ngôn ngữ lập trình như C++, Python, hoặc Java để tạo raw socket.
+
+3. Tạo dữ liệu gói tin DCP bằng cách tạo một Ethernet frame và thêm các trường cần thiết cho gói tin DCP. Trường chính của gói tin là trường EtherType với giá trị 0x8892, để xác định gói tin là loại PROFINET DCP.
+
+4. Gửi gói tin qua raw socket bằng cách sử dụng địa chỉ IP và MAC address xác định trong bước 1. Bạn có thể sử dụng hàm như `sendto()` để gửi gói tin.
+
+5. Đợi phản hồi từ thiết bị nhận. Bạn có thể sử dụng hàm `recvfrom()` để nhận gói tin phản hồi từ thiết bị.
+
+Lưu ý rằng việc lập trình gửi gói tin PROFINET DCP yêu cầu kiến thức về mạng và giao thức PROFINET. Bạn nên tham khảo tài liệu hướng dẫn của PROFINET và hiểu rõ các thuộc tính và cấu trúc của gói tin DCP trước khi bắt đầu lập trình.
+
+Dưới đây là một ví dụ về lập trình gửi gói tin Profinet DCP bằng ngôn ngữ lập trình Python, sử dụng thư viện Scapy:
+
+```python
+from scapy.all import Raw, IP, Ether, sendp
+
+# Tạo gói tin Profinet DCP
+dcp_packet = (
+Ether(dst="01:0e:cf:00:00:00") / # Địa chỉ MAC đích là địa chỉ multicast
+IP(dst="172.16.1.1") / # Địa chỉ IP đích
+Raw(load="\x63\x05") # Nội dung gói tin DCP, theo cú pháp của Profinet
+)
+
+# Gửi gói tin qua card mạng
+sendp(dcp_packet, iface="eth0") # Thay đổi "eth0" thành tên card mạng thích hợp trên thiết bị của bạn
+```
+
+Trong ví dụ này, chúng tôi sử dụng thư viện Scapy để tạo và gửi gói tin Profinet DCP. Đầu tiên, chúng tôi tạo một gói tin Ether với địa chỉ MAC đích là địa chỉ multicast Profinet DCP. Sau đó, chúng tôi thêm một lớp IP để chỉ định địa chỉ IP đích của thiết bị nhận gói tin. Cuối cùng, chúng tôi thêm một lớp Raw để đặt nội dung của gói tin DCP, được biểu diễn bằng một chuỗi byte.
+
+Sau khi tạo gói tin, chúng tôi sử dụng hàm sendp để gửi gói tin qua card mạng với tên giao diện "eth0". Bạn cần thay đổi tên giao diện thành tên card mạng thực tế trên thiết b
+
+//////////////
+//////////////
+////////////
+///////////
+import socket
+import struct
+
+def send_profinet_dcp_request(mac_address):
+    # Tạo raw socket ở layer 2
+    s = socket.socket(socket.AF_PACKET, socket.SOCK_RAW)
+    
+    # Thiết lập giao diện mạng
+    iface = "eth0"  # Thay eth0 bằng tên giao diện mạng bạn đang sử dụng
+    s.bind((iface, 0))
+    
+    # Tạo header Ethernet
+    ether_header = struct.pack("!6s6sH", b"\xFF\xFF\xFF\xFF\xFF\xFF", mac_address, 0x88AB)
+    
+    # Tạo gói tin Profinet DCP
+    service_id = 0x0004
+    data = struct.pack("!H", service_id)
+    packet = ether_header + data
+    
+    # Gửi gói tin
+    s.send(packet)
+    print("Gửi gói tin Profinet DCP thành công!")
+    
+# Gọi hàm gửi gói tin Profinet DCP    
+mac_address = b"\x00\x11\x22\x33\x44\x55"  # Thay bằng địa chỉ MAC của thiết bị nguồn
+send_profinet_dcp_request(mac_address)
+///////////////
+///////////////
+/////////////
+/////////////
+using System;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Text;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Tạo một raw socket
+        Socket socket = new Socket(AddressFamily.Packet, SocketType.Raw, ProtocolType.Raw);
+
+        // Thiết lập interface để gửi gói tin, ví dụ: "Ethernet"
+        string interfaceName = "Ethernet";
+        NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
+        NetworkInterface networkInterface = null;
+        foreach (NetworkInterface ni in interfaces)
+        {
+            if (ni.Name == interfaceName)
+            {
+                networkInterface = ni;
+                break;
+            }
+        }
+
+        // Lấy thông tin interface
+        IPv4InterfaceStatistics interfaceStats = networkInterface.GetIPv4Statistics();
+
+        // Lấy địa chỉ MAC của interface
+        PhysicalAddress macAddress = networkInterface.GetPhysicalAddress();
+
+        // Thiết lập địa chỉ nguồn
+        byte[] sourceMac = macAddress.GetAddressBytes();
+
+        // Thiết lập địa chỉ đích (Profinet Multicast MAC - 01:0E:CF:00:00:00)
+        byte[] destMac = new byte[] { 0x01, 0x0E, 0xCF, 0x00, 0x00, 0x00 };
+
+        // Thiết lập giao thức EtherType của DCP (0x8892)
+        ushort etherType = 0x8892;
+
+        // Tạo header của gói tin Ethernet
+        byte[] ethernetHeader = new byte[14];
+        Buffer.BlockCopy(destMac, 0, ethernetHeader, 0, 6);
+        Buffer.BlockCopy(sourceMac, 0, ethernetHeader, 6, 6);
+        Buffer.BlockCopy(BitConverter.GetBytes(etherType), 0, ethernetHeader, 12, 2);
+
+        // Gộp header và dữ liệu thành gói tin Ethernet
+        byte[] packetData = new byte[ethernetHeader.Length + payload.Length];
+        Buffer.BlockCopy(ethernetHeader, 0, packetData, 0, ethernetHeader.Length);
+        Buffer.BlockCopy(payload, 0, packetData, ethernetHeader.Length, payload.Length);
+
+        // Chỉ định interface cho raw socket
+        socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.SendInterfaceIndex, (int)networkInterface.GetIPProperties().GetIPv4Properties().Index);
+
+        // Gửi gói tin đi
+        socket.SendTo(packetData, 0, packetData.Length, SocketFlags.None, new IPEndPoint(IPAddress.Parse("255.255.255.255"), 0));
+
+        // Đóng raw socket
+        socket.Close();
+    }
+}
+Cần lưu ý rằng việc sử dụng raw sockets yêu cầu quyền quản trị viên (administrator/root) và chỉ hoạt động trên một số nền tảng nhất định.
+
+///////////////////////////
+/////////////////////
+///////////////////////
+////////////////////
+
+ChatGPT
+Dưới đây là một ví dụ về cách sử dụng raw sockets để gửi gói tin Profinet DCP ở layer 2 data link bằng Winform trong ngôn ngữ lập trình C#:
+using System;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Windows.Forms;
+
+namespace ProfinetDCPExample
+{
+    public partial class MainForm : Form
+    {
+        private Socket socket;
+
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            // Tạo raw socket ở layer 2
+            socket = new Socket(AddressFamily.InterNetwork, SocketType.Raw, ProtocolType.Raw);
+
+            // Set socket options để có thể gửi gói tin ở layer 2
+            socket.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.HeaderIncluded, true);
+            byte[] optionIn = new byte[4] { 1, 0, 0, 0 };
+            byte[] optionOut = new byte[4];
+            socket.IOControl(IOControlCode.ReceiveAll, optionIn, optionOut);
+
+            // Đăng ký sự kiện nhận gói tin
+            socket.BeginReceive(new byte[4096], 0, 4096, SocketFlags.None, OnReceive, null);
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Đóng socket khi form đóng
+            socket?.Close();
+        }
+
+        private void OnReceive(IAsyncResult ar)
+        {
+            try
+            {
+                // Kết thúc nhận gói tin và nhận gói tiếp theo
+                socket.EndReceive(ar);
+                socket.BeginReceive(new byte[4096], 0, 4096, SocketFlags.None, OnReceive, null);
+
+                // Xử lý dữ liệu nhận được
+                byte[] buffer = new byte[4096];
+                int length = socket.Receive(buffer);
+
+                // Kiểm tra nếu gói tin Profinet DCP
+                if (buffer[14] == 0x88 && buffer[15] == 0x93)
+                {
+                    // Xử lý gói tin Profinet DCP ở đây
+                    // ...
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SendProfinetDCPButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Tạo gói tin Profinet DCP
+                byte[] macAddress = PhysicalAddress.Parse("00-01-23-45-67-89").GetAddressBytes();
+                byte[] packet = new byte[14 + 43];
+                Array.Copy(macAddress, 0, packet, 0, 6); // Địa chỉ nguồn
+                Array.Copy(new byte[6] { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF }, 0, packet, 6, 6); // Địa chỉ đích
+                packet[12] = 0x88; // Ethertype (Profinet DCP)
+                packet[13] = 0x93;
+                // Dữ liệu gói tin Profinet DCP ở đây
+                // ...
+
+                // Gửi gói tin qua raw socket
+                socket.Send(packet);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}
+Trong ví dụ trên, form Winform có một nút "SendProfinetDCPButton" để gửi gói tin Profinet DCP và sử dụng raw socket để nhận gói tin trên layer 2. Phần xử lý gói tin Profinet DCP cụ thể chưa được triển khai, bạn cần thay thế toàn bộ code bên trong phần xử lý gói tin để phù hợp với yêu cầu của ứng dụng Profinet DCP của bạn.
+/////////////
+//////////////
+///////////
+Dưới đây là ví dụ để gửi gói tin Profinet DCP ở layer 2 data link bằng Winforms trong C#:
+Tạo một project Winforms mới trong Visual Studio.
+Thêm các thành phần cần thiết vào form như một textbox để nhập địa chỉ MAC đích, một button để gửi gói tin và một textbox để hiển thị kết quả.
+Sử dụng thư viện SharpPcap để thực hiện việc gửi gói tin.
+using SharpPcap;
+using PacketDotNet;
+
+namespace ProfinetDCPSender
+{
+    public partial class Form1 : Form
+    {
+        ICaptureDevice device;
+
+        public Form1()
+        {
+            InitializeComponent();
+            // Lấy danh sách các card mạng
+            var devices = CaptureDeviceList.Instance;
+
+            if (devices.Count < 1)
+            {
+                MessageBox.Show("Không tìm thấy card mạng.");
+                return;
+            }
+
+            // Chọn card mạng để gửi gói tin
+            device = devices[0];
+            device.Open(DeviceMode.Promiscuous);
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            // Lấy địa chỉ MAC đích từ textbox
+            string destinationMac = txtMacAddress.Text.Trim().Replace("-", ":");
+
+            // Tạo Ethernet packet
+            EthernetPacket ethernetPacket = new EthernetPacket(
+                PhysicalAddress.Parse(device.MacAddress), 
+                PhysicalAddress.Parse(destinationMac), 
+                EthernetPacketType.None);
+
+            // Tạo Raw packet
+            byte[] payload = Encoding.ASCII.GetBytes("Hello Profinet!");
+            ethernetPacket.PayloadPacket = new RawPacket(payload);
+
+            // Gửi gói tin
+            device.SendPacket(ethernetPacket);
+
+            txtResult.Text = "Gửi gói tin thành công.";
+        }
+    }
+}
+Trong ví dụ trên, chúng ta sử dụng thư viện SharpPcap để tương tác với card mạng và gửi gói tin Ethernet. Thư viện này cung cấp các chức năng cần thiết để tạo và gửi gói tin Profinet DCP. Để sử dụng thư viện này, bạn cần cài đặt gói nuget SharpPcap.
+Với ví dụ trên, khi người dùng nhấn vào nút "Gửi", chương trình sẽ lấy địa chỉ MAC đích từ textbox, tạo một gói tin Ethernet có payload là dữ liệu Profinet DCP và gửi gói tin qua card mạng đã chọn.
+
+Lưu ý rằng để gửi gói tin Profinet DCP thành công, bạn cần đảm bảo rằng card mạng đang sử dụng hỗ trợ giao thức Profinet và địa chỉ MAC đích là đúng.
+
+////////////////////
+///////////////////
+///////////////////
+///////////////
+Trong VB6.0, bạn có thể sử dụng thư viện WinPCap để gửi gói tin Profinet (Discovery and Configuration Protocol) ở layer 2 data link. Dưới đây là một ví dụ mã để gửi gói tin Profinet sử dụng thư viện này:
+copy'https://www.winpcap.org/docs/docs_412/html/group__wpcap__tut1.html
+
+'Thêm thư viện WinPCap vào dự án VB6.0 của bạn.
+
+Option Explicit
+
+Private Type ETH_HEADER
+    dst_mac(5)          As Byte
+    src_mac(5)          As Byte
+    ether_type(1)       As Byte
+    payload()           As Byte
+End Type
+
+Private Declare Function pcap_open_live Lib "Packet.dll" _
+    (ByVal device As String, ByVal snaplen As Long, _
+    ByVal promisc As Long, ByVal to_ms As Long, _
+    ByVal errbuf As String) As Long
+
+Private Declare Function pcap_sendpacket Lib "Packet.dll" _
+    (ByVal adapter As Long, ByRef data As Any, _
+    ByVal size As Long) As Long
+
+Private Declare Sub pcap_close Lib "Packet.dll" _
+    (ByVal adapter As Long)
+
+Private Sub Command1_Click()
+    Dim adapter As Long
+    Dim errbuf As String * 256
+    Dim data() As Byte
+    Dim pkt As ETH_HEADER
+    
+    ' Mở adapter để gửi packet
+    adapter = pcap_open_live("DEVICE NAME", 100, False, 1000, errbuf) 'Thay "DEVICE NAME" bằng tên adapter
+    
+    ' Kiểm tra xem adapter có được mở thành công hay không
+    If adapter <> 0 Then
+        ' Tạo gói tin Profinet
+        
+        ' Địa chỉ MAC đích (Destination MAC address)
+        pkt.dst_mac(0) = &H1
+        pkt.dst_mac(1) = &H2
+        pkt.dst_mac(2) = &H3
+        pkt.dst_mac(3) = &H4
+        pkt.dst_mac(4) = &H5
+        pkt.dst_mac(5) = &H6
+
+        ' Địa chỉ MAC nguồn (Source MAC address)
+        pkt.src_mac(0) = &HA
+        pkt.src_mac(1) = &HB
+        pkt.src_mac(2) = &HC
+        pkt.src_mac(3) = &HD
+        pkt.src_mac(4) = &HE
+        pkt.src_mac(5) = &HF
+
+        ' IPv4 EtherType
+        pkt.ether_type(0) = &H8
+        pkt.ether_type(1) = &H0
+
+        ' Payload (dữ liệu gửi đi)
+        ReDim pkt.payload(0 To 5)
+        pkt.payload(0) = &H40
+        pkt.payload(1) = &H41
+        pkt.payload(2) = &H42
+        pkt.payload(3) = &H43
+        pkt.payload(4) = &H44
+        pkt.payload(5) = &H45
+
+        ' Lấy kích thước gói tin
+        Dim size As Long
+        size = LenB(pkt)
+
+        ' Chuyển đổi cấu trúc dữ liệu ETH_HEADER sang mảng Byte
+        ReDim data(0 To size - 1)
+        Call CopyMemory(data(LBound(data)), pkt, size)
+        
+        ' Gửi gói tin Profinet
+        pcap_sendpacket adapter, data(LBound(data)), size
+        
+        ' Đóng adapter
+        pcap_close adapter
+    Else
+        MsgBox errbuf, vbCritical, "Error"
+    End If
+End Sub
+
+Private Declare Sub CopyMemory Lib "kernel32" _
+    Alias "RtlMoveMemory" (Destination As Any, Source As Any, _
+    ByVal Length As Long)
+///////////////////////
+////////////////////
+///////////////
+////////////
+Để gửi gói tin Profinet DCP ở layer 2 data link bằng Winforms trong VB6.0, bạn có thể sử dụng thư viện Ethernet/IP DCP Master Library để tạo và gửi gói tin. Dưới đây là ví dụ cơ bản:
+Thêm thư viện Ethernet/IP DCP Master Library vào project của bạn.
+Tạo một button trên form Winforms của bạn.
+Thiết kế sự kiện Click cho button đó:
+Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Dim destinationMAC As String = "01:0E:CF:02:03:04" ' Địa chỉ MAC của thiết bị đích (trong ví dụ này là 01:0E:CF:02:03:04)
+    Dim sourceMAC As String = "01:0E:CF:01:02:03" ' Địa chỉ MAC của thiết bị gửi (trong ví dụ này là 01:0E:CF:01:02:03)
+    Dim etherType As String = "8892" ' Giá trị EtherType cho gói tin DCP là 8892
+
+    Dim dcpPacket As New EthernetIP_protocol ' Tạo một đối tượng DCP packet
+    dcpPacket.DestinationMac = destinationMAC ' Thiết lập địa chỉ MAC đích
+    dcpPacket.SourceMac = sourceMAC ' Thiết lập địa chỉ MAC nguồn
+    dcpPacket.EtherType = etherType ' Thiết lập EtherType
+
+    ' Nếu muốn thiết lập các trường khác (như điểm đích, tên dịch vụ, mã danh mục, ...)
+    ' bạn có thể sử dụng các phương thức được cung cấp bởi thư viện Ethernet/IP DCP Master Library
+
+    ' Gửi gói tin DCP
+    dcpPacket.SendPacket()
+End Sub
+Vui lòng chú ý rằng ví dụ này chỉ tạo và gửi gói tin DCP, các trường khác (như điểm đích, tên dịch vụ, mã danh mục, ...) cần được thiết lập thích hợp theo yêu cầu của bạn.
+////////////////////
+/////////////////
+////////////////
+//////////////
+Để gửi gói tin Profinet DCP ở layer 2 data link bằng Winforms trong C#, bạn có thể sử dụng thư viện SharpPcap để truy cập vào các thông điệp mạng trên interface mạng. Dưới đây là một ví dụ cơ bản để gửi gói tin Profinet DCP:
+using System;
+using System.Windows.Forms;
+using SharpPcap;
+using PacketDotNet;
+
+namespace ProfinetDCPWinforms
+{
+    public partial class Form1 : Form
+    {
+        private ICaptureDevice device;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // Lấy danh sách các interface mạng có sẵn
+            var devices = CaptureDeviceList.Instance;
+
+            // Kiểm tra xem có interface mạng nào tồn tại không
+            if (devices.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy interface mạng.");
+                return;
+            }
+
+            // Chọn interface mạng đầu tiên
+            device = devices[0];
+
+            // Mở thiết bị để bắt gói tin mạng
+            device.Open(DeviceMode.Promiscuous);
+
+            // Gán sự kiện để bắt và xử lý gói tin nhận được
+            device.OnPacketArrival += Device_OnPacketArrival;
+
+            // Bắt đầu lắng nghe gói tin
+            device.StartCapture();
+        }
+
+        private void Device_OnPacketArrival(object sender, CaptureEventArgs e)
+        {
+            var packet = Packet.ParsePacket(e.Packet.LinkLayerType, e.Packet.Data);
+            
+            // Kiểm tra nếu là gói tin Profinet DCP
+            if (packet is EthernetPacket ethernetPacket)
+            {
+                var payloadPacket = ethernetPacket.PayloadPacket;
+                if (payloadPacket is IpPacket ipPacket)
+                {
+                    var udpPacket = ipPacket.PayloadPacket as UdpPacket;
+                    if (udpPacket != null && udpPacket.DestinationPort == 0x8892)
+                    {
+                        // Gửi gói tin Profinet DCP (ví dụ)
+                        byte[] dcpPacketData = new byte[8] { 0x45, 0x0E, 0x00, 0x28, 0x01, 0x00, 0x00, 0x00 };
+                        ethernetPacket.PayloadPacket = new RawPacket(dcpPacketData);
+                        device.SendPacket(ethernetPacket);
+                    }
+                }
+            }
+        }
+    }
+}
+Lưu ý rằng trong ví dụ trên, tạo ra một gói tin Profinet DCP giả lập (8 byte dữ liệu) và gửi lại gói tin đó qua interface mạng được chọn.
+Bạn cần cài đặt thư viện SharpPcap bằng cách sử dụng Manage NuGet Packages trong Visual Studio
+////////////////////////////////
+//////////////////////
+//////////////////
+///////////////
