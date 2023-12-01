@@ -1,0 +1,50 @@
+Để gửi gói LLDP bằng C#, bạn cần sử dụng thư viện SharpPcap và PacketDotNet. Dưới đây là một ví dụ cơ bản về cách gửi gói LLDP sử dụng C#:
+
+```csharp
+using System;
+using PacketDotNet;
+using SharpPcap;
+
+class Program
+{
+static void Main(string[] args)
+{
+// Tìm kiếm thiết bị mạng để gửi gói LLDP
+var devices = CaptureDeviceList.Instance;
+if (devices.Count == 0)
+{
+Console.WriteLine("Không tìm thấy thiết bị mạng.");
+return;
+}
+
+// Chọn thiết bị mạng đầu tiên để gửi gói LLDP
+var device = devices[0];
+
+// Mở thiết bị mạng để gửi gói LLDP
+device.Open(DeviceMode.Promiscuous);
+
+// Tạo gói LLDP
+var ethernetPacket = new EthernetPacket(device.MacAddress, PhysicalAddress.Parse("01:80:c2:00:00:0e"), EthernetType.LLDP);
+var lldpPacket = new LLDPPacket()
+{
+ChassisID = "My Chassis ID",
+PortID = "My Port ID",
+TTL = 120,
+SystemName = "My System",
+SystemDescription = "My System Description"
+// Các thông tin khác có thể được đặt ở đây
+};
+ethernetPacket.PayloadPacket = lldpPacket;
+
+// Gửi gói LLDP
+device.SendPacket(ethernetPacket);
+
+// Đóng thiết bị mạng
+device.Close();
+
+Console.WriteLine("Gửi gói LLDP thành công.");
+}
+}
+```
+
+Lưu ý rằng để thực hiện ví dụ này, bạn cần cài đặt gói NuGet để sử dụng thư viện SharpPcap và PacketDotNet.

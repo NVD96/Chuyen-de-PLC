@@ -1,0 +1,69 @@
+Để lấy địa chỉ MAC trong C#, bạn có thể sử dụng lớp `NetworkInterface` trong `System.Net.NetworkInformation`. Dưới đây là một ví dụ:
+
+```csharp
+using System;
+using System.Net.NetworkInformation;
+
+class Program
+{
+static void Main()
+{
+string macAddress = GetMACAddress();
+Console.WriteLine("MAC Address: " + macAddress);
+}
+
+static string GetMACAddress()
+{
+string macAddress = "";
+
+foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+{
+if (nic.OperationalStatus == OperationalStatus.Up && !nic.Description.Contains("Virtual"))
+{
+macAddress = nic.GetPhysicalAddress().ToString();
+break;
+}
+}
+
+return macAddress;
+}
+}
+```
+
+Trong ví dụ này, chúng ta sử dụng phương thức `GetAllNetworkInterfaces()` để lấy danh sách tất cả các giao diện mạng trên máy tính. Chúng ta duyệt qua từng giao diện mạng và kiểm tra xem giao diện mạng đó có đang hoạt động và không phải là ảo hay không. Sau đó, chúng ta sử dụng phương thức `GetPhysicalAddress()` để lấy địa chỉ MAC của giao diện mạng đang hoạt động.
+////////////////////
+////////////////
+/////////////////
+/
+/
+/
+/
+Để lấy địa chỉ IP trong C#, bạn có thể sử dụng lớp `Dns` và phương thức `GetHostEntry` như sau:
+
+```csharp
+using System;
+using System.Net;
+
+public class Program
+{
+public static void Main()
+{
+string hostName = Dns.GetHostName(); // Lấy tên máy chủ
+
+IPHostEntry ipEntry = Dns.GetHostEntry(hostName); // Lấy thông tin địa chỉ IP
+
+// Lấy danh sách địa chỉ IP
+IPAddress[] ipAddresses = ipEntry.AddressList;
+
+// In ra địa chỉ IP
+foreach (IPAddress ip in ipAddresses)
+{
+Console.WriteLine(ip.ToString());
+}
+}
+}
+```
+
+Phương thức `GetHostEntry` sẽ trả về một đối tượng `IPHostEntry` chứa thông tin về tên máy chủ và danh sách địa chỉ IP liên kết với nó. Bạn có thể sử dụng thuộc tính `AddressList` để lấy danh sách địa chỉ IP.
+
+Ví dụ trên sẽ in ra tất cả các địa chỉ IP liên kết với máy chủ.

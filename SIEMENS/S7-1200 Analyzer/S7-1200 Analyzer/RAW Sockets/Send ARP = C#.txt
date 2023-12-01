@@ -1,0 +1,47 @@
+Để gửi gói tin ARP trong C#, bạn có thể sử dụng namespace `System.Net.NetworkInformation` và lớp `ArpPacket` để tạo gói tin ARP và gửi nó bằng cách sử dụng lớp `Ping`.
+
+Dưới đây là một ví dụ cụ thể về cách gửi gói tin ARP trong C#:
+
+```csharp
+using System;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+
+class Program
+{
+static void Main()
+{
+string ipAddress = "192.168.0.1"; // Địa chỉ IP của thiết bị cần gửi gói tin ARP
+string targetMacAddress = "00-11-22-33-44-55"; // Địa chỉ MAC của thiết bị cần gửi gói tin ARP
+
+byte[] targetMacBytes = PhysicalAddress.Parse(targetMacAddress).GetAddressBytes();
+
+// Tạo gói tin ARP
+ArpPacket arpPacket = new ArpPacket(
+EthernetType.Arp,
+PhysicalAddress.Parse("00-11-22-33-44-55"), // Địa chỉ MAC nguồn
+IPAddress.Parse("192.168.0.2"), // Địa chỉ IP nguồn
+PhysicalAddress.Parse(targetMacAddress), // Địa chỉ MAC đích
+IPAddress.Parse(ipAddress) // Địa chỉ IP đích
+);
+
+// Gửi gói tin ARP
+using (Ping ping = new Ping())
+{
+PingReply reply = ping.Send(ipAddress, 1000, arpPacket.ToArray());
+
+if (reply.Status == IPStatus.Success)
+{
+Console.WriteLine("Gửi gói tin ARP thành công!");
+}
+else
+{
+Console.WriteLine("Gửi gói tin ARP không thành công: " + reply.Status.ToString());
+}
+}
+}
+}
+```
+
+Trong ví dụ này, `ipAddress` là địa chỉ IP của thiết bị cần gửi gói tin ARP và `targetMacAddress` là địa chỉ MAC của thiết bị đó.

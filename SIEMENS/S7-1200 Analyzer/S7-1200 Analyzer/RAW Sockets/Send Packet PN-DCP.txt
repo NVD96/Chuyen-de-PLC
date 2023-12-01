@@ -1,0 +1,163 @@
+Để gửi gói tin Profinet với loại (type) 0x8892 bằng C#, bạn có thể làm như sau:
+
+1. Cài đặt thư viện SharpPcap:
+- Mở Package Manager Console trong Visual Studio.
+- Chạy câu lệnh sau để cài đặt thư viện SharpPcap:
+```
+Install-Package SharpPcap
+```
+
+2. Import các namespace cần thiết:
+```csharp
+using System;
+using SharpPcap;
+using PacketDotNet;
+using System.Net.NetworkInformation;
+```
+
+3. Lấy danh sách các thiết bị mạng sẵn có:
+```csharp
+var devices = CaptureDeviceList.Instance;
+
+// Lấy thông tin của thiết bị mạng đầu tiên
+var device = devices[0];
+```
+
+4. Mở thiết bị mạng để bắt/gửi gói tin:
+```csharp
+int readTimeout = 1000; // Thời gian chờ đọc
+device.Open(DeviceMode.Promiscuous, readTimeout);
+```
+
+5. Tạo gói tin Profinet với loại 0x8892:
+```csharp
+EthernetPacket packet = new EthernetPacket(
+PhysicalAddress.Parse("11:22:33:44:55:66"), // Địa chỉ MAC nguồn
+PhysicalAddress.Parse("AA:BB:CC:DD:EE:FF"), // Địa chỉ MAC đích
+EthernetPacketType.Profinet); // Loại gói tin Profinet
+
+// Thêm dữ liệu vào gói tin
+packet.PayloadPacket = new ByteArrayPacket(
+new byte[] { 0x01, 0x02, 0x03, 0x04 }); // Dữ liệu gửi đi (ví dụ)
+```
+
+6. Gửi gói tin:
+```csharp
+device.SendPacket(packet);
+```
+
+7. Đóng thiết bị mạng:
+```csharp
+device.Close();
+```
+
+--------------------------
+--------------------
+--------------------
+---------------
+Để gửi gói tin Profinet với loại (type) 0x8892 bằng C#, bạn có thể sử dụng thư viện SharpPcap và Packet.Net. Dưới đây là một ví dụ đơn giản để gửi gói tin Profinet với loại 0x8892:
+
+```csharp
+using System;
+using SharpPcap;
+using PacketDotNet;
+
+namespace ProfinetSender
+{
+class Program
+{
+static void Main(string[] args)
+{
+// Lấy danh sách các thiết bị mạng khả dụng
+var devices = CaptureDeviceList.Instance;
+
+// Kiểm tra xem có thiết bị nào khả dụng không
+if (devices.Count < 1)
+{
+Console.WriteLine("Không tìm thấy thiết bị mạng.");
+return;
+}
+
+// Chọn thiết bị mạng đầu tiên
+var device = devices[0];
+
+// Mở thiết bị mạng để tạo gói tin
+device.Open(DeviceMode.Normal);
+
+// Tạo gói tin Profinet với loại 0x8892
+var ethernetPacket = new EthernetPacket(
+new PhysicalAddress("00-11-22-33-44-55"), // Địa chỉ nguồn
+new PhysicalAddress("11-22-33-44-55-66"), // Địa chỉ đích
+EthernetPacketType.Profinet) // Loại gói tin Profinet (0x8892)
+{
+PayloadPacket = new ProfinetPacket()
+};
+
+// Gửi gói tin qua thiết bị mạng
+device.SendPacket(ethernetPacket);
+
+// Đóng thiết bị mạng
+device.Close();
+
+Console.WriteLine("Gửi gói tin Profinet thành công.");
+}
+}
+}
+```
+
+Trong ví dụ trên, chúng ta sử dụng thư viện SharpPcap để lấy danh sách thiết bị mạng và gửi gói tin
+///////////////////
+//////////
+//////////
+///////////
+////
+/
+/
+/
+/
+/
+
+ChatGPT
+Để gửi gói tin EthernetPacketType.Profinet bằng C#, bạn có thể sử dụng thư viện SharpPcap và PacketDotNet. Dưới đây là một ví dụ cách thực hiện việc này:
+using System;
+using System.Net.NetworkInformation;
+using PacketDotNet;
+using SharpPcap;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Lấy danh sách các thiết bị mạng
+        var devices = CaptureDeviceList.Instance;
+
+        // In danh sách các thiết bị mạng
+        foreach (var device in devices)
+        {
+            Console.WriteLine(device.Description);
+        }
+
+        // Chọn thiết bị mạng để gửi gói tin
+        var selectedDevice = devices[0];
+
+        // Mở thiết bị mạng
+        selectedDevice.Open(DeviceMode.Promiscuous);
+
+        // Tạo gói tin Ethernet
+        var ethernetPacket = new EthernetPacket(
+            PhysicalAddress.Parse("00-11-22-33-44-55"), // Địa chỉ MAC nguồn
+            PhysicalAddress.Parse("AA-BB-CC-DD-EE-FF"), // Địa chỉ MAC đích
+            EthernetPacketType.Profinet // Loại gói tin Ethernet
+        );
+
+        // Gửi gói tin
+        selectedDevice.SendPacket(ethernetPacket);
+
+        // Đóng thiết bị mạng
+        selectedDevice.Close();
+    }
+}
+Trong ví dụ trên, đầu tiên chúng ta lấy danh sách các thiết bị mạng sử dụng CaptureDeviceList.Instance. Sau đó, chọn thiết bị mạng đầu tiên và mở thiết bị đó.
+Tiếp theo, chúng ta tạo một EthernetPacket với địa chỉ MAC nguồn và đích cụ thể và loại gói tin Ethernet là EthernetPacketType.Profinet. Cuối cùng, sử dụng phương thức SendPacket() để gửi gói tin thông qua thiết bị mạng đã chọn.
+
+Lưu ý: Bạn cần cài đặt gói nuget SharpPcap và PacketDotNet để sử dụng các lớp và phương thức trong ví dụ trên.

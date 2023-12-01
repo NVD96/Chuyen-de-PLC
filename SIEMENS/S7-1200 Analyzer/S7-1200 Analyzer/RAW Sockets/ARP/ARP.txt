@@ -1,0 +1,164 @@
+Attribute VB_Name = "modMAC"
+Option Explicit
+ 
+'original author dilettante
+'
+'=============
+'GetAdaptsInfo
+'=============
+'This module provides:
+'   o Public Type AdapterInfo
+'   o Public Function GetAdaptersInfo(ByRef AdaptersInfo() As AdapterInfo) As Long
+'The purpose is to return a list of network adapters, their MAC address, their
+'first (possibly only) IP address, their associated Default Gateway IP addresses,
+'etc.
+'
+ 
+Private Const MAX_ADAPTER_NAME_LENGTH = 260
+Private Const MAX_ADAPTER_ADDRESS_LENGTH = 8
+Private Const MAX_ADAPTER_DESCRIPTION_LENGTH = 132
+Private Const ERROR_SUCCESS = 0
+Private Const ERROR_NOT_SUPPORTED = 50
+Private Const ERROR_INVALID_PARAMETER = 87
+Private Const ERROR_BUFFER_OVERFLOW = 111
+Private Const ERROR_NO_DATA = 232
+ 
+Public Type AdapterInfo
+    Name As String
+    AdapterIndex As Long
+    Type As Long
+    Address As String
+    IP As String
+    Description As String
+    GatewayIP As String
+End Type
+ 
+Private Type IP_ADDR_STRING
+    Next As Long
+    IpAddress As String * 16
+    IpMask As String * 16
+    Context As Long
+End Type
+ 
+Private Type IP_ADAPTER_INFO
+    Next As Long
+    ComboIndex As Long
+    AdapterName As String * MAX_ADAPTER_NAME_LENGTH
+    Description As String * MAX_ADAPTER_DESCRIPTION_LENGTH
+    AddressLength As Long
+    Address(MAX_ADAPTER_ADDRESS_LENGTH - 1) As Byte
+    index As Long
+    Type As Long
+    DhcpEnabled As Long
+    CurrentIpAddress As Long
+    IpAddressList As IP_ADDR_STRING
+    GatewayList As IP_ADDR_STRING
+    DhcpServer As IP_ADDR_STRING
+    HaveWins As Byte
+    PrimaryWinsServer As IP_ADDR_STRING
+    SecondaryWinsServer As IP_ADDR_STRING
+    LeaseObtained As Long
+    LeaseExpires As Long
+End Type
+ 
+Public Enum AdatperType
+    MIB_IF_TYPE_OTHER = 1                             'Some other type of network interface.
+    MIB_IF_TYPE_ETHERNET = 6                          'An Ethernet network interface.
+    IF_TYPE_ISO88025_TOKENRING = 9                    'MIB_IF_TYPE_TOKENRING
+    MIB_IF_TYPE_PPP = 23                              'A PPP network interface.
+    MIB_IF_TYPE_LOOPBACK = 24                         'A software loopback network interface.
+    MIB_IF_TYPE_SLIP = 28                             'An ATM network interface.
+    IF_TYPE_IEEE80211 = 71                            'An IEEE 802.11 wireless network interface.
+    'This adapter type ireturned on Windows Vista and later, On Windows Server 2003 and Windows XP , returns MIB_IF_TYPE_ETHERNET.
+End Enum
+ 
+Private Declare Function GetAdaptersInfoAPI Lib "IPHlpApi" Alias "GetAdaptersInfo" ( _
+                                            ByRef APIAdapterInfo As Any, ByRef pOutBufLen As Long) As Long
+ 
+Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" ( _
+                               ByRef Destination As Any, ByRef Source As Any, ByVal Length As Long)
+ 
+Private Function RNullTrim(ByVal Value As String) As String
+    Dim NulPos As Long
+    NulPos = InStr(Value, vbNullChar)
+    RNullTrim = Left$(Value, NulPos - 1)
+End Function
+ 
+Private Function HexBytes(ByRef Bytes() As Byte, ByVal Length As Long) As String
+    Const HEX_CHARS As String = "0123456789ABCDEF"
+    Dim i As Long
+    If Length Then
+        HexBytes = String$(Length * 3 - 1, ":")
+        For i = 0 To Length - 1
+            Mid$(HexBytes, 1 + i * 3, 1) = mid$(HEX_CHARS, 1 + Bytes(i) \ &H10, 1)
+            Mid$(HexBytes, 2 + i * 3, 1) = mid$(HEX_CHARS, 1 + (Bytes(i) And &HF), 1)
+        Next
+    End If
+End Function
+ 
+Public Function GetAdaptersInfo(ByRef AdaptersInfo() As AdapterInfo) As Long
+'Returns count of adapters.
+'Call GetAdaptersInfoAPI() and update the list of adapters and
+'their Default Gateways.  If no adapters are found AdaptersInfo
+'is not altered.
+    Dim pOutBufLen As Long
+    Dim APIAdapterInfoBuffer() As Byte
+    Dim pAdapt As Long
+    Dim APIAdapterInfo As IP_ADAPTER_INFO
+    Dim AdapterCount As Long
+    'Note:  GetAdaptersInfoAPI() returns a linked list of adapter entries.
+    'Find required buffer size.
+    pOutBufLen = 0
+    AdapterCount = 0
+    Select Case GetAdaptersInfoAPI(ByVal 0&, pOutBufLen)
+    Case ERROR_SUCCESS
+        Err.Raise &H8004B700, "GetAdaptersInfo", "GetAdaptersInfo Early Success: internal error"
+    Case ERROR_NOT_SUPPORTED
+        Err.Raise &H8004B710, "GetAdaptersInfo", "GetAdaptersInfo is not supported by this OS"
+    Case ERROR_INVALID_PARAMETER
+        Err.Raise &H8004B720, "GetAdaptersInfo", "GetAdaptersInfo Bad Parameters: internal error"
+    Case ERROR_BUFFER_OVERFLOW
+        ReDim APIAdapterInfoBuffer(pOutBufLen - 1)
+        'Get adapter information by calling with adequate buffer.
+        Select Case GetAdaptersInfoAPI(APIAdapterInfoBuffer(0), pOutBufLen)
+        Case ERROR_SUCCESS
+            pAdapt = VarPtr(APIAdapterInfoBuffer(0))
+            Do While pAdapt                           'Not 0.
+                CopyMemory APIAdapterInfo, ByVal pAdapt, Len(APIAdapterInfo)
+                ReDim Preserve AdaptersInfo(AdapterCount)
+                With AdaptersInfo(AdapterCount)
+                    .Name = RNullTrim(APIAdapterInfo.AdapterName)
+                    .AdapterIndex = APIAdapterInfo.index
+                    .Description = RNullTrim(APIAdapterInfo.Description)
+                    .Type = APIAdapterInfo.Type
+                    .Address = HexBytes(APIAdapterInfo.Address, _
+                                        APIAdapterInfo.AddressLength)
+ 
+                    'Take only 1st entry from each of next two lists, though
+                    'on a server OS their can be several.
+                    '
+                    'In theory these may be null.  If so we store an empty
+                    'String value.
+                    .IP = RNullTrim(APIAdapterInfo.IpAddressList.IpAddress)
+                    .GatewayIP = RNullTrim(APIAdapterInfo.GatewayList.IpAddress)
+                End With
+                pAdapt = APIAdapterInfo.Next
+                AdapterCount = AdapterCount + 1
+            Loop
+            GetAdaptersInfo = AdapterCount
+        Case ERROR_NOT_SUPPORTED
+            Err.Raise &H8004B730, "GetAdaptersInfo", "GetAdaptersInfo Late Failure: is not supported by this OS"
+        Case ERROR_INVALID_PARAMETER
+            Err.Raise &H8004B740, "GetAdaptersInfo", "GetAdaptersInfo Late Failure, Bad Parameters: internal error"
+        Case ERROR_BUFFER_OVERFLOW
+            Err.Raise &H8004B750, "GetAdaptersInfo", "GetAdaptersInfo Late Failure: buffer overflow"
+        Case Else
+            Err.Raise &H8004B760, "GetAdaptersInfo", "GetAdaptersInfo Late Failure: system error " & CStr(Err.LastDllError)
+        End Select
+    Case ERROR_NO_DATA
+        Exit Function
+    Case Else
+        Err.Raise &H8004B770, "GetAdaptersInfo", _
+                  "GetAdaptersInfo system error " & CStr(Err.LastDllError)
+    End Select
+End Function
