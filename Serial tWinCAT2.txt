@@ -1,0 +1,435 @@
+serial number for
+
+TwinCAT PLC Serial Communication 3964R-RK512
+P386-6978-5832
+
+TwinCAT ModBus RTU
+P790-1674-8517
+
+TwinCAT PLC HMI
+P234-9895-9615
+
+Control Panel For OPC Server
+P215-9068-6899
+
+TwinCAT Modbus TCP Server
+P194-7787-4341
+
+TwinCAT TCP/IP Server
+P664-5679-7422
+
+TwinCAT PLC HMI
+P234-9895-9615
+
+PID
+P961-2563-6452
+
+TwinCAT CAM Design
+P789-3852-9311
+
+TwinCAT NC Camming
+P288-9771-2651
+
+OPC:
+
+P332-ABCD-1234
+
+ TwinCAT PLC Serial Communication 2.0.4?
+P814-2297-6186
+////////////////////
+//////////////////
+////////////
+
+TwinCAT OPC Server
+(DataAccess 1.0a & 2.0/Alarm&Event 1.0)
+Standard interface for the communi-cation in the Automation technology
+Serial:P332-8296-2989
+http://rapidshare.com/files/112496634/TwinCAT_OPC_Server_4.1.0.80.rar
+Update: New Build
+http://rapidshare.com/files/214482534/TwinCAT-OPC-Server_4.1.0.88.rar
+
+TwinCAT OPC Server CE
+(DataAccess 2.x)
+Standard interface for the communication in the Automation technology for CE platform.
+Serial:P405-7997-9545
+http://rapidshare.com/files/112497721/TwinCAT_OPC_Server_CE_4.1.0.41.rar
+New Build
+http://rapidshare.com/files/215478747/TwinCAT-OPC-Server-CE_4.1.42.rar
+
+TwinCAT OPC-UA Server
+Standard interface for the communication in the Automation technology.
+Serial:P332-7991-3195
+http://rapidshare.com/files/112498418/TwinCAT_OPC_UA_Server_1.207.09.13.rar
+Update: New Build
+http://rapidshare.com/files/214485343/TwinCAT-OPC-UA-Server_1.232.9.28.rar
+
+TwinCAT OPC-UA Server CE
+Standard interface for the communication in the Automation technology for CE platform.
+Serial:P405-7966-9774
+http://rapidshare.com/files/112498682/TwinCAT_OPC_UA_Server_CE_1.207.09.13.rar
+Update: New Build
+http://rapidshare.com/files/214486093/TwinCAT-OPC-UA-Server-CE_1.232.9.28.rar
+
+TwinCAT DriveCOM OPC Server
+Standard interface to configure Siemens 611U and Siemens Posmo drives
+Serial:P491-9813-1199
+http://rapidshare.com/files/112491362/TwinCAT_DriveCOM_OPC_Server_4.0.0.62.rar
+
+TwinCAT DriveTop Server
+The server enables easy communication to DriveTop compatible drives.
+Serial:P491-9813-1199
+http://rapidshare.com/files/112491571/TwinCAT_DriveTop_Server_1.0.0.83.rar
+
+TwinCAT Drive Manager
+AX5000 Configuration Plugin for the TwinCAT SystemManager
+Serial:P317-6535-8860
+http://rapidshare.com/files/112489972/TwinCAT_Drive_Manager_1.0.0.94.rar
+
+TwinCAT PLC Temperature Controller
+Library with function blocks for monitoring and controlling temperature-dependent processes~
+Serial:P205-9798-8655
+http://rapidshare.com/files/112504065/TwinCAT_PLC_Temperature_Controller_2.1.2.rar
+
+TwinCAT PLC Serial Communication
+Library with function blocks for serial communication via bus terminals or PC serial port.
+Serial:P814-4074-6884
+http://rapidshare.com/files/112470011/TwinCAT_PLC_Serial_Communication_2.0.4.rar
+
+TwinCAT PLC Serial Communication 3964R-RK512
+Library with function blocks for serial communication with 3964R and RK512 protocol via bus terminals or PC serial port.
+Serial:P386-8346-8523
+http://rapidshare.com/files/112503481/TwinCAT_PLC_Serial_Communication_3964R-RK512_2.3.0.rar
+
+TwinCAT PLC Building Automation
+Library with function blocks for building automation.
+Serial:P678-2012-8698
+http://rapidshare.com/files/112498853/TwinCAT_PLC_Building_Automation_1.2.2.rar
+Update: New Build
+http://rapidshare.com/files/214465305/TwinCAT_PLC_Building_Automation_1.3.1.rar
+
+TwinCAT PLC Building Automation DALI
+Library with function blocks for building automation.
+Serial:P611-9063-4987
+http://rapidshare.com/files/112499645/TwinCAT_PLC_Building_Automation_DALI_2.3.0.rar
+Update: New Build
+http://rapidshare.com/files/214465475/TwinCAT_PLC_Building_Automation_DALI_2.4.1.rar
+
+TwinCAT PLC Serial Communication EnOcean
+Library with function blocks for communication with EnOcean radio technology .
+Serial:P732-2688-9547
+http://rapidshare.com/files/112503685/TwinCAT_PLC_Serial_Communication_EnOcean_1.1.1.rar
+
+TwinCAT PLC Modbus RTU
+Library with function blocks for serial communication with Modbus end devices.
+Serial:P790-2136-9738
+http://rapidshare.com/files/112502954/TwinCAT_PLC_Modbus_RTU_2.2.0.rar
+Update: New Build
+http://rapidshare.com/files/214489024/TwinCAT-PLC-Modbus-RTU_2.3.0.rar
+
+TwinCAT PLC-IEC-60870-5-101 (Slave)
+Library with function blocks for communication via the telecontrol protocol according to IEC60870-5-101.
+Serial:P668-4621-8575
+http://rapidshare.com/files/112504430/TwinCAT_PLC-IEC-60870-5-101__Slave__3.0.6.rar
+Update: New Build
+http://rapidshare.com/files/214486486/TwinCAT-PLC-IEC-60870-5-101-Slave_3.0.8.rar
+
+TwinCAT PLC IEC-60870-5-102 (master)
+Library with function blocks for communication via the telecontrol protocol according to IEC60870-5-102.
+Serial:P666-4681-4458
+http://rapidshare.com/files/112501999/TwinCAT_PLC_IEC-60870-5-102__master__1.0.1.rar
+Update: New Build
+http://rapidshare.com/files/214486768/TwinCAT-PLC-IEC-60870-5-102-Master_1.0.3.rar
+
+TwinCAT PLC-IEC-60870-5-103 (Master)
+Library with function blocks for communication via the telecontrol protocol according to IEC60870-5-103.
+Serial:P511-8059-9862
+http://rapidshare.com/files/112504735/TwinCAT_PLC-IEC-60870-5-103__Master__1.0.9.rar
+Update: New Build
+http://rapidshare.com/files/214486980/TwinCAT-PLC-IEC-60870-5-103-Master_1.0.10.rar
+
+TwinCAT PLC-IEC-60870-5-104 (Master)
+Library with function blocks for communication via the telecontrol protocol according to IEC60870-5-104.
+Serial:P770-6917-4583
+http://rapidshare.com/files/112505093/TwinCAT_PLC-IEC-60870-5-104__Master__1.0.4.rar
+Update: New Build
+http://rapidshare.com/files/214487244/TwinCAT-PLC-IEC-60870-5-104-Master_1.0.5.rar
+
+TwinCAT PLC-IEC-60870-5-104 (Slave)
+Library with function blocks for communication via the telecontrol protocol according to IEC60870-5-104.
+Serial:P665-8549-5739
+http://rapidshare.com/files/112505439/TwinCAT_PLC-IEC-60870-5-104__Slave__3.0.5.rar
+Update: New Build
+http://rapidshare.com/files/214487911/TwinCAT-PLC-IEC-60870-5-104-Slave_3.0.6.rar
+
+TwinCAT PLC IEC-60870-5-104-CE (Master)
+Library with function blocks for communication via the telecontrol protocol according to IEC60870-5-104 for CE platform.
+Serial:P228-9183-3998
+http://rapidshare.com/files/112502354/TwinCAT_PLC_IEC-60870-5-104-CE__Master__1.0.4.rar
+Update: New Build
+http://rapidshare.com/files/214487556/TwinCAT-PLC-IEC-60870-5-104-Master-CE_1.0.5.rar
+
+TwinCAT PLC IEC-60870-5-104-CE (Slave)
+Library with function blocks for communication via the telecontrol protocol according to IEC60870-5-104 for CE platform.
+Serial:P762-5348-9131
+http://rapidshare.com/files/112502738/TwinCAT_PLC_IEC-60870-5-104-CE__Slave__3.0.5.rar
+Update: New Build
+http://rapidshare.com/files/214488218/TwinCAT-PLC-IEC-60870-5-104-Slave-CE_3.0.6.rar
+
+TwinCAT PLC Controller Toolbox
+Library with function blocks for solving control tasks.
+Serial:P689-7376-3817
+http://rapidshare.com/files/112500097/TwinCAT_PLC_Controller_Toolbox_1.15.0.rar
+Update: New Build
+http://rapidshare.com/files/214467857/TwinCAT-PLC-Controller-Toolbox_1.16.0.rar
+
+TwinCAT PLC Hydraulic Positioning
+Library with function blocks relevant for hydraulic axes.
+Serial:P799-8411-1375
+http://rapidshare.com/files/112501751/TwinCAT_PLC_Hydraulic_Positioning_2.1.30.rar
+Update: New Build
+http://rapidshare.com/files/214469199/TwinCAT-PLC-Hydraulic-Positioning_3.0.31.rar
+
+TwinCAT TCPIP Server
+Software package for implementation one or several TCP/IP-Server/-Clients.
+Serial:P664-9950-3151
+http://rapidshare.com/files/112507763/TwinCAT_TCPIP_Server_1.0.0.45.rar
+Update: New Build
+http://rapidshare.com/files/214489945/TwinCAT-TCP_IP-Server_1.0.0.47.rar
+
+TwinCAT TCPIP Server CE
+Software package for implementation one or several TCP/IP-Server/-Clients for CE platform.
+Serial:P761-3382-5059
+http://rapidshare.com/files/112507990/TwinCAT_TCPIP_Server_CE_1.0.0.45.rar
+Update: New Build
+http://rapidshare.com/files/214490163/TwinCAT-TCP_IP-Server-CE_1.0.0.47.rar
+
+TwinCAT MODBUS TCP Server
+Software package for communication with Modbus Client resp. Modbus Server via Modbus TCP.
+Serial:P194-1480-5599
+http://rapidshare.com/files/112494139/TwinCAT_MODBUS_TCP_Server_1.0.0.25.rar
+
+TwinCAT MODBUS TCP Server CE
+Software package for communication with Modbus Client resp. Modbus Server via Modbus TCP for CE platform.
+Serial:P901-3377-7684
+http://rapidshare.com/files/112494335/TwinCAT_MODBUS_TCP_Server_CE_1.0.0.25.rar
+
+TwinCAT XML Data Server
+Software for initialisation of TwinCAT PLC Variables with data, which are stored in a XML file.
+Serial:P735-6878-4562
+http://rapidshare.com/files/112508672/TwinCAT_XML_Data_Server_1.0.0.24.rar
+
+TwinCAT XML Data Server CE
+Software for initialisation of TwinCAT PLC Variables with data, which are stored in a XML file, for CE platform.
+Serial:P912-9844-5462
+http://rapidshare.com/files/112508887/TwinCAT_XML_Data_Server_CE_1.0.0.24.rar
+
+TwinCAT DataBase Server
+Software package for communication with a database.
+Serial:P286-6373-1497
+http://rapidshare.com/files/112488558/TwinCAT_DataBase_Server_1.0.0.7.rar
+Update: New Build
+http://rapidshare.com/files/214474775/TwinCAT-DataBase-Server_1.0.0.11.rar
+
+TwinCAT DataBase Server CE
+Software package for communication with a database, for the CE platform.
+Serial:P352-7170-6469
+http://rapidshare.com/files/112489022/TwinCAT_DataBase_Server_CE_1.0.0.7.rar
+Update: New Build
+http://rapidshare.com/files/214475444/TwinCAT-DataBase-Server-CE_1.0.0.11.rar
+
+TwinCAT ENI Server
+Software package for version control management and multi-user PLC development
+Serial:P888-2398-3232
+http://rapidshare.com/files/112492581/TwinCAT_ENI_Server_1.1.6.0.rar
+
+TwinCAT Backup Server
+Server for backing up and restoring complete PCs (with operating system installed).
+Serial:P272-7398-3655
+http://rapidshare.com/files/112486828/TwinCAT_Backup_Server_1.01.142.rar
+
+TwinCAT Simulation Manager
+Software package enables easy creation of simulationprofiles.
+Serial:P531-7832-8582
+http://rapidshare.com/files/112506866/TwinCAT_Simulation_Manager_1.1.517.0.rar
+Update: New Build
+http://rapidshare.com/files/214478957/TwinCAT-Simulation-Manager_2.0.543.rar
+
+TwinCAT SMS/SMTP Server
+Software package and library with function blocks for sending SMS messages via bus terminals or PC serial port.
+Serial:P296-7881-6215
+http://rapidshare.com/files/112507348/TwinCAT_SMS_SMTP_Server_1.0.0.4.rar
+Update: New Build
+http://rapidshare.com/files/214489355/TwinCAT-SMS_SMTP-Server_1.0.0.7.rar
+
+TwinCAT SMS/SMTP Server CE
+Software package and library with function blocks for sending SMS messages via bus terminals or PC serial port.
+Serial:P231-8491-8943
+http://rapidshare.com/files/112507543/TwinCAT_SMS_SMTP_Server_CE_1.0.3.0.rar
+Update: New Build
+http://rapidshare.com/files/214489717/TwinCAT-SMS_SMTP-Server-CE__1.0.0.7.rar
+
+TwinCAT Profinet Slave
+Software for integrating TwinCAT controllers as slave device into a Profinet network
+Serial:P762-2191-5457
+http://rapidshare.com/files/112505619/TwinCAT_Profinet_Slave_1.0.0.0.rar
+
+TwinCAT Profinet Slave CE
+Software for integrating TwinCAT controllers based on Windows CE as slave device into a Profinet network
+Serial:P922-9245-9218
+http://rapidshare.com/files/112505836/TwinCAT_Profinet_Slave_CE_1.0.0.0.rar
+
+TwinCAT Ethernet IP Slave
+TwinCAT PC/CX acts as Ethernet IP Slave.
+Serial:P445-5576-4596
+http://rapidshare.com/files/112492868/TwinCAT_Ethernet_IP_Slave_1.0.0.1.rar
+
+TwinCAT Ethernet IP Slave CE
+TwinCAT PC/CX acts as Ethernet IP Slave, for the CE platform.
+Serial:P833-7676-1776
+http://rapidshare.com/files/112493101/TwinCAT_Ethernet_IP_Slave_CE_1.0.0.1.rar
+
+TwinCAT ECAD Import
+Software package for importing XML files from the ECAD systems. A TwinCAT System Manager configuration and a PLC program are created automatically
+Serial:P745-8269-2566
+http://rapidshare.com/files/112491871/TwinCAT_ECAD_Import_1.0.1.3.rar
+
+TwinCAT NC Camming
+Softwaretool to synchronise two or more axes. A master axis is then actively controlled, and the position of one or more coupled slave axes is synchronously controlled by the nc.
+Serial:P288-2469-9359
+http://rapidshare.com/files/112494494/TwinCAT_NC_Camming_2.3.8.rar
+Update: New Build
+http://rapidshare.com/files/214468424/TwinCAT-NC-Camming_3.0.4.rar
+
+TwinCAT NC Fifo Axis
+Softwaretool to synchronise two or more axes.
+In this case, rather than having one master-slave table prescribed in advanc, the latest axis positions are constantly "topped up" by a PLC program.
+Serial:P683-9531-5232
+http://rapidshare.com/files/112494651/TwinCAT_NC_Fifo_Axis_1.2.1.rar
+
+TwinCAT NC Flying Saw
+Softwaretool to synchronise the position and the speed of tool and workpiece.
+Serial:P452-7850-9739
+http://rapidshare.com/files/112494870/TwinCAT_NC_Flying_Saw_2.1.8.rarUpdate: New Build
+http://rapidshare.com/files/214468692/TwinCAT-NC-Flying-Saw_3.0.3.rar
+
+TwinCAT CAM Design Tool
+Softwaretool to develop electronic cam plates on the basis of VDI guideline 2143 (Installation routine).
+Serial:P789-3325-8254
+http://rapidshare.com/files/112487032/TwinCAT_CAM_Design_Tool_1.0.1.rar
+Update: New Build
+http://rapidshare.com/files/214515406/TwinCAT-Cam-Design-Tool_1.0.2.rar.html
+
+TwinCAT Valve Diagram Editor
+Softwaretool to develop the characteristic curve for a hydraulic valve (Installation routine).
+Serial:P727-9579-5434
+http://rapidshare.com/files/112508236/TwinCAT_Valve_Diagram_Editor_1.0.1.rar
+
+TwinCAT CP9090-S100
+The activeX component can control the functions of the Beckhoff Control Panel under Windows 9x / NTx.
+Serial:P513-9381-9924
+http://rapidshare.com/files/112488192/TwinCAT_CP9090-S100_1.2.0.2.rar
+
+TwinCAT Control Panel OPC-Server
+(Data Access 1.0a & 2.0)
+Standard interface for the communi-cation in the Automation technology (Win9x/Win2000/WinXP)
+Serial:P215-9057-9583
+http://rapidshare.com/files/112487872/TwinCAT_ControlPanel_OPC_Server_1.0.0.10.rar
+
+TwinCAT KS8000
+Communication library for serial communication with Beckhoff bus coupler BK8x00 via PC serial port (incl. LabView connection).
+Serial:P119-7069-9498
+http://rapidshare.com/files/112493776/TwinCAT_KS8000_2.0.0.9.rar
+
+TwinCAT ADS Communication Library
+TwinCAT Communication library for Windows 2000/NT/XP/CE
+Serial:P856-2195-6341
+http://rapidshare.com/files/112509562/TwinCAT_ADS_Communication_Library_2.8.0.6.rar
+Update: New Build
+http://rapidshare.com/files/214480498/TwinCAT-ADS-Communication-Library_2.8.11.rar
+
+TwinCAT PLC Lib RemoteSync
+Library to synchronize distributed systems.
+Serial:P222-6998-8169
+http://rapidshare.com/files/112509759/TwinCAT_PLC_Lib_RemoteSync_1.0.3.rar
+
+TwinCAT Building Automation Framework
+Softwaretool for development and commissioning for industrial Building Automation. Contains a PLC Library and a configuration program.
+Serial:P356-5946-7194
+http://rapidshare.com/files/112483341/TwinCAT_BA_Framework_2.12.0.8.rar
+Update: New Build
+http://rapidshare.com/files/214466687/TwinCAT_Building_Automation_Framework_2.12.0.22.rar
+
+TwinCAT PLC HMI
+Software package for standalone-execution of the TwinCAT PLC Control visualization.
+Serial:P234-6185-7583
+http://rapidshare.com/files/112501086/TwinCAT_PLC_HMI_2.10.0_Build_900.rar
+Update: New Build
+http://rapidshare.com/files/214477511/TwinCAT-PLC-HMI__1.0.0.1.rar
+
+TwinCAT PLC HMI Web
+Software package for web based execution of the TwinCAT PLC Control visualization.
+Serial:P460-8959-1988
+http://rapidshare.com/files/112501315/TwinCAT_PLC_HMI_Web_1.0.0.1.rar
+Update: New Build
+http://rapidshare.com/files/214478367/TwinCAT-PLC-HMI-Web_1.0.0.6.rar
+
+TwinCAT EtherCAT Redundancy
+Software package for using the EtherCAT redundancy mode unter TwinCAT.
+Precondition: TwinCAT 2.10 Build 1313 or higher.
+The setup is valid for all versions (250, 1000, 1000+), the number of usable slaves is defined by the product key.
+Serial:P426-8777-3198
+http://rapidshare.com/files/112704375/TwinCAT_EtherCAT_Redundancy_1.0.0.0.rar
+Update: New Build
+http://rapidshare.com/files/214476812/TwinCAT-EtherCAT-Redundancy_1.0.0.1.rar
+
+TwinCAT KS2000
+Software tool for project design and extended parameterisation of the Beckhoff Bus Terminals and Fieldbus Box modules
+configuration package consisting of: configuration software for Windows NT/2000/XP
+Serial:P170-8423-7790
+http://rapidshare.com/files/112668117/TwinCAT_KS2000_4.3.0.65.rar
+Update: New Build
+http://rapidshare.com/files/214512788/KS2000_V4_4.3.0.68.rar
+
+-----------------------------------------------------
+New Librarys:
+
+TwinCAT-Virtual-Serial-COM-Driver 1.0.0.10
+Driver for the insertion of one or more EL60xx EtherCAT Terminals as normal serial interfaces (‘COMx’) in Windows CE or XP
+Serial:Free
+http://rapidshare.com/files/214490359/TwinCAT-Virtual-Serial-COM-Driver_1.0.0.10.rar
+
+TwinCAT-PLC-M-Bus 1.1.0
+Library with function blocks for reading M-Bus devices.
+Serial:P897-2360-7319
+http://rapidshare.com/files/214488541/TwinCAT-PLC-M-Bus_1.1.0.rar.html
+
+TwinCAT-PLC-HMI-CE 1.0.9.10
+Software package for standalone-execution of the TwinCAT PLC Control visualization.
+Serial:P377-7084-4350
+http://rapidshare.com/files/214478214/TwinCAT-PLC-HMI-CE_1.0.9.10.rar
+
+TwinCAT-Engineering-Interface-Server 1.1.6.1
+Software package for version control management and multi-user PLC development.
+Serial:P888-4853-4638
+http://rapidshare.com/files/214476157/TwinCAT-Engineering-Interface-Server_1.1.6.1.rar
+
+TwinCAT-PackAL 3.0.0
+SPS Library with standardized components for packaging technology from the OMAC Packsoft Group.
+Serial:P998-3276-4511
+http://rapidshare.com/files/214468886/TwinCAT-PackAL_3.0.0.rar
+
+TwinCAT-EtherCAT-Redundancy-CE 1.0.0.1
+Software package for using the EtherCAT redundancy mode unter TwinCAT.
+Precondition: TwinCAT 2.10 Build 1313 or higher. The setup is valid for all versions (250, 1000, 1000+), the number of usable slaves is defined by the product key.
+Serial:P476-6296-6713
+http://rapidshare.com/files/214476955/TwinCAT-EtherCAT-Redundancy-CE__1.0.0.1.rar
+
+TwinCAT PLC HVAC 1.0.3
+Library with more than 70 functional blocks for the automation of heating, ventilation, air conditioning and sanitary systems.
+Serial:P425-5274-9771
+http://rapidshare.com/files/214465846/TwinCAT_PLC_HVAC_1.0.3.rar
+
+
+TwinCAT Crestron Server 3.0.0.7
+Software package for communication with the Crestron controller
+http://rapidshare.com/files/214464570/TwinCAT_Crestron_Server_3.0.0.7.rar
