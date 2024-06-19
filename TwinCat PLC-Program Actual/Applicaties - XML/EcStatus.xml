@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- last modified 2008-11-28 by roy molenaar, ICT Procos -->
+<dynamic-text>
+<header>
+	<default-language>english</default-language>
+	<default-font>
+		<language>english</language>
+		<font-name> Arial </font-name>
+		<font-color>0,0,0</font-color>
+		<font-height>-13</font-height>
+		<font-weight>700</font-weight>
+		<font-italic>false</font-italic>
+		<font-underline>false</font-underline>
+		<font-strike-out>false</font-strike-out>
+		<font-char-set>0</font-char-set>
+	</default-font>
+</header>
+<text-list>
+	<text prefix="STATE" id="0">
+		<english> run </english>
+	</text>
+	<text prefix="STATE" id="1">
+		<english> link error </english>
+	</text>
+	<text prefix="STATE" id="2">
+		<english> I/O locked after link error </english>
+	</text>
+	<text prefix="STATE" id="4">
+		<english> Link error </english>
+	</text>
+	<text prefix="STATE" id="8">
+		<english> Missing one frame </english>
+	</text>
+	<text prefix="STATE" id="16">
+		<english> Out of send resources </english>
+	</text>
+	<text prefix="STATE" id="32">
+		<english> Watchdog triggered </english>
+	</text>
+	<text prefix="STATE" id="33">
+		<english> Network cable disconnected </english>
+	</text>
+	<text prefix="STATE" id="64">
+		<english> Ethernet driver not found </english>
+	</text>
+	<text prefix="STATE" id="128">
+		<english> I/O reset active </english>
+	</text>
+	<text prefix="STATE" id="256">
+		<english> one device in INIT state </english>
+	</text>
+	<text prefix="STATE" id="512">
+		<english> one device in PRE-OP state </english>
+	</text>
+	<text prefix="STATE" id="1024">
+		<english> one device in SAFE-OP state </english>
+	</text>
+	<text prefix="STATE" id="2048">
+		<english> one device indicates an error state </english>
+	</text>
+	<text prefix="STATE" id="4096">
+		<english> DC not in sync </english>
+	</text>
+
+	<text prefix="ID" id="1">
+		<english> <![CDATA[EtherCATMaster1]]> </english>
+	</text>
+	<text prefix="ID" id="2">
+		<english> <![CDATA[EtherCATMaster2]]> </english>
+	</text>
+	<text prefix="ID" id="3">
+		<english> <![CDATA[EtherCATMaster3]]> </english>
+	</text>
+	<text prefix="ID" id="4">
+		<english> <![CDATA[EtherCATMaster4]]> </english>
+	</text>
+</text-list>
+</dynamic-text>

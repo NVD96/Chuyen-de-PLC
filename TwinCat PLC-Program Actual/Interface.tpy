@@ -1,0 +1,5855 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--This file is created by the TCatPlcCtrl automatically. Manually changes will be overwritten!-->
+<PlcProjectInfo xmlns:p="http://www.beckhoff.com/2002/01/TcPlcProjectDesc">
+	<ProjectInfo>
+		<Path>Z:\F-3\uht\cf1\TwinCat PLC\Interface.pro</Path>
+		<IsLibrary>false</IsLibrary>
+		<ChangeDate>2023-12-30T14:00:24</ChangeDate>
+		<Library>
+			<Name>STANDARD.LIB</Name>
+			<Path>C:\TwinCAT\PLC\LIB\STANDARD.LIB</Path>
+			<ChangeDate>1998-06-05T12:03:02</ChangeDate>
+		</Library>
+	</ProjectInfo>
+	<RoutingInfo>
+		<AdsInfo>
+			<NetId>192.168.0.1.1.1</NetId>
+			<Port>811</Port>
+		</AdsInfo>
+	</RoutingInfo>
+	<CompilerInfo>
+		<CpuFamily>x86</CpuFamily>
+		<CompilerVersion>2.9.9.59</CompilerVersion>
+		<Alignment>Byte</Alignment>
+		<PackSize>1</PackSize>
+		<TwinCATVersion>2.11.0</TwinCATVersion>
+		<TwinCATBuild>2306</TwinCATBuild>
+		<TCatPlcCtrlVersion>2.11.2623</TCatPlcCtrlVersion>
+	</CompilerInfo>
+	<TargetInfo>
+		<CpuFamily>x86</CpuFamily>
+		<DataAreaInfo>
+			<DataSize>1048576</DataSize>
+			<RetainSize>32768</RetainSize>
+			<MAreaSize>32768</MAreaSize>
+			<InputSize>16384</InputSize>
+			<OutputSize>16384</OutputSize>
+			<MaxNumOfPOUs>2048</MaxNumOfPOUs>
+		</DataAreaInfo>
+	</TargetInfo>
+	<TaskInfos>
+		<TaskInfo>
+			<Name>Standard</Name>
+			<Priority>0</Priority>
+			<CycleTime>10</CycleTime>
+			<CycleTimeUs>10000</CycleTimeUs>
+			<Calls>
+				<ProgramCall>MAIN</ProgramCall>
+				<ProgramCall>IO</ProgramCall>
+			</Calls>
+		</TaskInfo>
+	</TaskInfos>
+	<DirectoryInfos>
+		<DirectoryInfo>
+			<Type>LibraryDir</Type>
+			<Path>C:\TwinCAT\PLC\LIB\</Path>
+		</DirectoryInfo>
+		<DirectoryInfo>
+			<Type>CompileDir</Type>
+			<Path>C:\TwinCAT\PLC\</Path>
+		</DirectoryInfo>
+	</DirectoryInfos>
+	<DataTypes>
+		<DataType>
+			<Name Decoration="2001012E">ARRAY [1..5] OF REAL</Name>
+			<Type>REAL</Type>
+			<BitSize>160</BitSize>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>5</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10033799" Crc32="2422551665" LastChange="2023-12-30T14:00:24">ST_UnitSettings</Name>
+			<BitSize>224</BitSize>
+			<SubItem>
+				<Name>arrfUnitSpeed</Name>
+				<Type Decoration="2001012E">ARRAY [1..5] OF REAL</Type>
+				<BitSize>160</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>fDeltaVToFillValve</Name>
+				<Type>REAL</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>fDeltaVFromFillValve</Name>
+				<Type>REAL</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name Decoration="100511C7" Crc32="4165456169" LastChange="2023-12-30T14:00:24">ST_Downstream_IN</Name>
+			<BitSize>144</BitSize>
+			<SubItem>
+				<Name>iuDigital_IN</Name>
+				<Type>UINT</Type>
+				<Comment>
+					<![CDATA[Bit 0: 	RFP		Ready For Production
+						Bit 1: 	PDS	Product DownStream
+						Bit 2: 	SPS		Sterideal Production Stop
+						Bit 3: 	RFW	Request For Water
+						Bit 4: 	SBS;	Steam Barrier Sterile
+						Bit 5: 	FCA		Filler CIP Active]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ifFPR</Name>
+				<Type>REAL</Type>
+				<Comment>
+					<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ifReal_1</Name>
+				<Type>REAL</Type>
+				<Comment>
+					<![CDATA[Floating Point signal from Downstream Unit, Dummy]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ifReal_2</Name>
+				<Type>REAL</Type>
+				<Comment>
+					<![CDATA[Floating Point signal from Downstream Unit, Dummy]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ifReal_3</Name>
+				<Type>REAL</Type>
+				<Comment>
+					<![CDATA[Floating Point signal from Downstream Unit, Dummy]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>112</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name Decoration="1005124C" Crc32="2236990187" LastChange="2023-12-30T14:00:24">ST_Downstream_Out</Name>
+			<BitSize>144</BitSize>
+			<SubItem>
+				<Name>ouDigital_OUT</Name>
+				<Type>UINT</Type>
+				<Comment>
+					<![CDATA[Bit 0: 	UST	Unit (Sterilizer/Steritank) Sterile conditions
+						Bit 1: 	PAM		Product At Machine
+						Bit 2: 	WAM		Water At Machine
+						Bit 3: 	CIP			Cleaning In Place
+						Bit 4: 	CSB			Clean Steam Barrier]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ofLVL</Name>
+				<Type>REAL</Type>
+				<Comment>
+					<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ofReal_1</Name>
+				<Type>REAL</Type>
+				<Comment>
+					<![CDATA[Floating Point signal from Downstream Unit, Dummy]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ofReal_2</Name>
+				<Type>REAL</Type>
+				<Comment>
+					<![CDATA[Floating Point signal from Downstream Unit, Dummy]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ofReal_3</Name>
+				<Type>REAL</Type>
+				<Comment>
+					<![CDATA[Floating Point signal from Downstream Unit, Dummy]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>112</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name Decoration="100353BF" Crc32="3150439248" LastChange="2023-12-30T14:00:24">ST_DSUnit_IO</Name>
+			<BitSize>304</BitSize>
+			<SubItem>
+				<Name>stIN</Name>
+				<Type Decoration="100511C7">ST_Downstream_IN</Type>
+				<BitSize>144</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>stOUT</Name>
+				<Type Decoration="1005124C">ST_Downstream_Out</Type>
+				<BitSize>144</BitSize>
+				<BitOffs>144</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nLine</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>288</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name Decoration="2001679C">ARRAY [1..5] OF ST_DSUnit_IO</Name>
+			<Type Decoration="100353BF">ST_DSUnit_IO</Type>
+			<BitSize>1520</BitSize>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>5</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="1001927A" Crc32="3744133286" LastChange="2023-12-30T14:00:24">ST_DSLine_IO</Name>
+			<BitSize>1520</BitSize>
+			<SubItem>
+				<Name>arrDS_Unit</Name>
+				<Type Decoration="2001679C">ARRAY [1..5] OF ST_DSUnit_IO</Type>
+				<BitSize>1520</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name Decoration="20010191">ARRAY [0..63] OF UINT</Name>
+			<Type>UINT</Type>
+			<Comment>
+				<![CDATA[This input is directly coming from another PLC]]>
+			</Comment>
+			<BitSize>1024</BitSize>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>64</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="1007BD37" Crc32="0545955794" LastChange="2023-12-30T14:00:24">FB_InterComm</Name>
+			<BitSize>2352</BitSize>
+			<SubItem>
+				<Name>_uDigital_IN</Name>
+				<Type>UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>_nWordCnt</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>_nUnitCnt</Name>
+				<Type>INT</Type>
+				<Comment>
+					<![CDATA[Communication signals across PLCs]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name Location="Input">arrComm_In</Name>
+				<Type Decoration="20010191">ARRAY [0..63] OF UINT</Type>
+				<Comment>
+					<![CDATA[This input is directly coming from another PLC]]>
+				</Comment>
+				<BitSize>1024</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name Location="Output">arrComm_Out</Name>
+				<Type Decoration="20010191">ARRAY [0..63] OF UINT</Type>
+				<Comment>
+					<![CDATA[This output is sent directly to another PLC]]>
+				</Comment>
+				<BitSize>1024</BitSize>
+				<BitOffs>1072</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input">istUnitSettings</Name>
+				<Type Decoration="10033799">ST_UnitSettings</Type>
+				<BitSize>224</BitSize>
+				<BitOffs>2096</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="InOut">iostDSLine_IO</Name>
+				<Type Decoration="1001927A" Pointer="1">ST_DSLine_IO</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>2320</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>51</CodeIndex>
+				<InitIndex>52</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10082045" Crc32="2483606826" LastChange="2023-12-30T14:00:24">ST_ControlInfo</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>nHmiSelected</Name>
+				<Type>INT</Type>
+				<Comment>
+					<![CDATA[Button is selected directly or pop-up result]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>bAllowed</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Button can be pressed]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>bIndicator</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Indicator for button]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>bBlinking</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Blinking indicator for button]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nConfirmationId</Name>
+				<Type>DINT</Type>
+				<Comment>
+					<![CDATA[Pop-up will appear when button on HMI is pressed; when confirmed, bHmiSelected =>TRUE]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>bExclusive</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[When TRUE, manual function can only be used as stand-alone function and will reset other manual functions]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nPopupId</Name>
+				<Type>DINT</Type>
+				<Comment>
+					<![CDATA[When <> 0, pop-up will appear on HMI; when confirmed, bHmi selected => TRUE]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nButton</Name>
+				<Type>INT</Type>
+				<Comment>
+					<![CDATA[Select type of pop-up]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>112</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name Decoration="2001A63E">ARRAY [1..6] OF ST_DSLine_IO</Name>
+			<Type Decoration="1001927A">ST_DSLine_IO</Type>
+			<BitSize>9120</BitSize>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="20014C5A">ARRAY [1..6] OF ST_UnitSettings</Name>
+			<Type Decoration="10033799">ST_UnitSettings</Type>
+			<BitSize>1344</BitSize>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="200134A7">ARRAY [1..6] OF ST_ControlInfo</Name>
+			<Type Decoration="10082045">ST_ControlInfo</Type>
+			<BitSize>768</BitSize>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10055D63" Crc32="2046375355" LastChange="2023-12-30T14:00:24">ST_HMI</Name>
+			<BitSize>12768</BitSize>
+			<SubItem>
+				<Name>stDS_IO_Line</Name>
+				<Type Decoration="2001A63E">ARRAY [1..6] OF ST_DSLine_IO</Type>
+				<BitSize>9120</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>arrDSLineSettings</Name>
+				<Type Decoration="20014C5A">ARRAY [1..6] OF ST_UnitSettings</Type>
+				<BitSize>1344</BitSize>
+				<BitOffs>9120</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>arrHmiSelectLine</Name>
+				<Type Decoration="200134A7">ARRAY [1..6] OF ST_ControlInfo</Type>
+				<BitSize>768</BitSize>
+				<BitOffs>10464</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>stDSActiveLine_IO</Name>
+				<Type Decoration="1001927A">ST_DSLine_IO</Type>
+				<BitSize>1520</BitSize>
+				<BitOffs>11232</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nActiveLineNr</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>12752</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name Decoration="100F346A" Crc32="1366841298" LastChange="2023-12-30T14:00:24">FB_LineSelect</Name>
+			<BitSize>13296</BitSize>
+			<SubItem>
+				<Name>stHMI</Name>
+				<Type Decoration="10055D63">ST_HMI</Type>
+				<BitSize>12768</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>_bInit</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[initialize device, bit will reset after first PLC scan]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>12768</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>_nUnitCnt</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>12776</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>_nLineCnt</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>12792</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>_ManualDSLineSel</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>12808</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>_SelLineNr</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>12816</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output">onActiveLineNr</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>12832</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output">ostUnitSettings</Name>
+				<Type Decoration="10033799">ST_UnitSettings</Type>
+				<BitSize>224</BitSize>
+				<BitOffs>12848</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="InOut">iostDownStream_L1</Name>
+				<Type Decoration="1001927A" Pointer="1">ST_DSLine_IO</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>13072</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="InOut">iostDownStream_L2</Name>
+				<Type Decoration="1001927A" Pointer="1">ST_DSLine_IO</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>13104</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="InOut">iostDownStream_L3</Name>
+				<Type Decoration="1001927A" Pointer="1">ST_DSLine_IO</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>13136</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="InOut">iostDownStream_L4</Name>
+				<Type Decoration="1001927A" Pointer="1">ST_DSLine_IO</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>13168</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="InOut">iostDownStream_L5</Name>
+				<Type Decoration="1001927A" Pointer="1">ST_DSLine_IO</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>13200</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="InOut">iostDownStream_L6</Name>
+				<Type Decoration="1001927A" Pointer="1">ST_DSLine_IO</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>13232</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="InOut">iostDSActiveLine_IO</Name>
+				<Type Decoration="1001927A" Pointer="1">ST_DSLine_IO</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>13264</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>53</CodeIndex>
+				<InitIndex>54</InitIndex>
+				<ActionInfo>
+					<Name>_Init</Name>
+					<CodeIndex>55</CodeIndex>
+				</ActionInfo>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10060AFD" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CTD</Name>
+			<BitSize>64</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">M</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Variable for CD Edge Detection]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CD</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Count Down on rising edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">LOAD</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Load Start Value]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">PV</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[Start Value]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Counter reached 0]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CV</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[Current Counter Value]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>18</CodeIndex>
+				<InitIndex>19</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10060B75" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CTU</Name>
+			<BitSize>64</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">M</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Variable for CU Edge Detection]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CU</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Count Up]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">RESET</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Reset Counter to 0]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">PV</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[Counter Limit]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Counter reached the Limit]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CV</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[Current Counter Value]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>20</CodeIndex>
+				<InitIndex>21</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100A13D0" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CTUD</Name>
+			<BitSize>96</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">MU</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Variable for CU Edge Detection]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">MD</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Variable for CD Edge Detection]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CU</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Count Up]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CD</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Count Down]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">RESET</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Reset Counter to Null]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">LOAD</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Load Start Value]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">PV</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[Start Value / Counter Limit]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">QU</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Counter reached Limit]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">QD</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Counter reached Null]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CV</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[Current Counter Value]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>22</CodeIndex>
+				<InitIndex>23</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="1003051C" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">F_TRIG</Name>
+			<BitSize>24</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">M</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CLK</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Signal to detect]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Edge detected]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>25</CodeIndex>
+				<InitIndex>26</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="1003051C" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">R_TRIG</Name>
+			<BitSize>24</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">M</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CLK</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Signal to detect]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Edge detected]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>32</CodeIndex>
+				<InitIndex>33</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100306C8" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">RS</Name>
+			<BitSize>24</BitSize>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">SET</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">RESET1</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">Q1</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>36</CodeIndex>
+				<InitIndex>37</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100409DC" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">SEMA</Name>
+			<BitSize>32</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">X</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CLAIM</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">RELEASE</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">BUSY</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>38</CodeIndex>
+				<InitIndex>39</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100306C6" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">SR</Name>
+			<BitSize>24</BitSize>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">SET1</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">RESET</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">Q1</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>40</CodeIndex>
+				<InitIndex>41</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10060D24" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">TOF</Name>
+			<BitSize>120</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">M</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[internal variable]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">StartTime</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[internal variable]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">IN</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[starts timer with falling edge, resets timer with rising edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">PT</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[time to pass, before Q is set]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[is FALSE, PT seconds after IN had a falling edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">ET</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[elapsed time]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>88</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>42</CodeIndex>
+				<InitIndex>43</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10060D24" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">TON</Name>
+			<BitSize>120</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">M</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[internal variable]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">StartTime</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[internal variable]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">IN</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[starts timer with rising edge, resets timer with falling edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">PT</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[time to pass, before Q is set]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[is TRUE, PT seconds after IN had a rising edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">ET</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[elapsed time]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>88</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>44</CodeIndex>
+				<InitIndex>45</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10050B9B" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">TP</Name>
+			<BitSize>112</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">StartTime</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[internal variable]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">IN</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Trigger for Start of the Signal]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">PT</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[The length of the High-Signal in 10ms]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[The pulse]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">ET</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[The current phase of the High-Signal]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>46</CodeIndex>
+				<InitIndex>47</InitIndex>
+			</FbInfo>
+		</DataType>
+	</DataTypes>
+	<Functions>
+		<Function>
+			<Name Decoration="10040FE4" Crc32="2042056318" LastChange="2023-12-30T14:00:24">F_Real_To_Uint</Name>
+			<FunInfo>
+				<CodeIndex>49</CodeIndex>
+				<ReturnValue>
+					<Name>F_Real_To_Uint</Name>
+					<Type>UINT</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name>_nMult</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input">ifDataIn</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input">inMantissa</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10040FF5" Crc32="1254619748" LastChange="2023-12-30T14:00:24">F_Uint_To_Real</Name>
+			<FunInfo>
+				<CodeIndex>50</CodeIndex>
+				<ReturnValue>
+					<Name>F_Uint_To_Real</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name>_nMult</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input">iuDataIn</Name>
+					<Type>UINT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input">inMantissa</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="1003CF58" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CONCAT</Name>
+			<FunInfo>
+				<CodeIndex>17</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">CONCAT</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">STR1</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">STR2</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10048DE1" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">DELETE</Name>
+			<FunInfo>
+				<CodeIndex>24</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">DELETE</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">STR</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">LEN</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">POS</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10038BEA" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">FIND</Name>
+			<FunInfo>
+				<CodeIndex>27</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">FIND</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">STR1</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">STR2</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="1004D151" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">INSERT</Name>
+			<FunInfo>
+				<CodeIndex>28</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">INSERT</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">STR1</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">STR2</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">POS</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10038BD5" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">LEFT</Name>
+			<FunInfo>
+				<CodeIndex>29</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">LEFT</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">STR</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">SIZE</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10024688" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">LEN</Name>
+			<FunInfo>
+				<CodeIndex>30</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">LEN</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">STR</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10048D08" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">MID</Name>
+			<FunInfo>
+				<CodeIndex>31</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">MID</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">STR</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">LEN</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">POS</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="1005D217" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">REPLACE</Name>
+			<FunInfo>
+				<CodeIndex>34</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">REPLACE</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">STR1</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">STR2</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">L</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">P</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10038C28" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">RIGHT</Name>
+			<FunInfo>
+				<CodeIndex>35</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">RIGHT</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">STR</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\STANDARD.LIB">SIZE</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+	</Functions>
+	<Programs>
+		<Program>
+			<Name Decoration="1002077F" Crc32="1408902361" LastChange="2023-12-30T14:00:24">IO</Name>
+			<PrgInfo>
+				<CodeIndex>56</CodeIndex>
+				<ActionInfo>
+					<Name>Line_1</Name>
+					<CodeIndex>57</CodeIndex>
+				</ActionInfo>
+				<ActionInfo>
+					<Name>Line_2</Name>
+					<CodeIndex>58</CodeIndex>
+				</ActionInfo>
+				<ActionInfo>
+					<Name>Line_3</Name>
+					<CodeIndex>59</CodeIndex>
+				</ActionInfo>
+				<ActionInfo>
+					<Name>Line_4</Name>
+					<CodeIndex>60</CodeIndex>
+				</ActionInfo>
+				<ActionInfo>
+					<Name>Line_5</Name>
+					<CodeIndex>61</CodeIndex>
+				</ActionInfo>
+				<ActionInfo>
+					<Name>Line_6</Name>
+					<CodeIndex>62</CodeIndex>
+				</ActionInfo>
+				<Symbol>
+					<Name>IO._bDummy</Name>
+				</Symbol>
+				<Symbol>
+					<Name>IO._outDummy</Name>
+				</Symbol>
+			</PrgInfo>
+		</Program>
+		<Program>
+			<Name Decoration="10052191" Crc32="2256041418" LastChange="2023-12-30T14:00:24">MAIN</Name>
+			<PrgInfo>
+				<CodeIndex>63</CodeIndex>
+				<Symbol>
+					<Name>MAIN.fbLineselect</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.fbInterComm</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN._stDSActiveLine_IO</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN._stUnitSettings</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN._nActiveLineNr</Name>
+				</Symbol>
+			</PrgInfo>
+		</Program>
+	</Programs>
+	<Symbols>
+		<Symbol>
+			<Name TaskPrio="1">IO._bDummy</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>4</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">IO._outDummy</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Placeholder for outgoing signals this can have a value!!!!!!]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>5</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.fbLineselect</Name>
+			<Type Decoration="100F346A">FB_LineSelect</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>6</IOffset>
+			<BitSize>13296</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.fbInterComm</Name>
+			<Type Decoration="1007BD37">FB_InterComm</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1668</IOffset>
+			<BitSize>2352</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN._stDSActiveLine_IO</Name>
+			<Type Decoration="1001927A">ST_DSLine_IO</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1962</IOffset>
+			<BitSize>1520</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN._stUnitSettings</Name>
+			<Type Decoration="10033799">ST_UnitSettings</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2152</IOffset>
+			<BitSize>224</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN._nActiveLineNr</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2180</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" TaskPrio="1">.gnMaxUnit</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>0</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" TaskPrio="1">.gnMaxDSLine</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gstLine_1_IO</Name>
+			<Type Decoration="1001927A">ST_DSLine_IO</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2220</IOffset>
+			<BitSize>1520</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gstLine_2_IO</Name>
+			<Type Decoration="1001927A">ST_DSLine_IO</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2410</IOffset>
+			<BitSize>1520</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gstLine_3_IO</Name>
+			<Type Decoration="1001927A">ST_DSLine_IO</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2600</IOffset>
+			<BitSize>1520</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gstLine_4_IO</Name>
+			<Type Decoration="1001927A">ST_DSLine_IO</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2790</IOffset>
+			<BitSize>1520</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gstLine_5_IO</Name>
+			<Type Decoration="1001927A">ST_DSLine_IO</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2980</IOffset>
+			<BitSize>1520</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gstLine_6_IO</Name>
+			<Type Decoration="1001927A">ST_DSLine_IO</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>3170</IOffset>
+			<BitSize>1520</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L1_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">960</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^831U2 (EL1024)^Channel 1^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L1_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">961</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^831U2 (EL1024)^Channel 2^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L1_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">962</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^831U2 (EL1024)^Channel 3^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L1_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">963</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^831U2 (EL1024)^Channel 4^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L1_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">964</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L1_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">965</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L1_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">960</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^851U2 (EL2624)^Channel 1^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L1_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">961</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^851U2 (EL2624)^Channel 2^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L1_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">962</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^851U2 (EL2624)^Channel 3^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L1_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">963</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^851U2 (EL2624)^Channel 4^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L1_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">964</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L1_U1</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">0</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L1_U1</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">0</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L1_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">966</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L1_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">967</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L1_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">968</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L1_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">969</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L1_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">970</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L1_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">971</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L1_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">965</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^852U2 (EL2624) New for FCA^Channel 1^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L1_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">966</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^852U2 (EL2624) New for FCA^Channel 2^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L1_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">967</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^852U2 (EL2624) New for FCA^Channel 3^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L1_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">968</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^852U2 (EL2624) New for FCA^Channel 4^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L1_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">969</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L1_U2</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">4</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L1_U2</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">4</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L1_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">972</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L1_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">973</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L1_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">974</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L1_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">975</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L1_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">976</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L1_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">977</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L1_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">970</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^853U2 (EL2624) New for FCA^Channel 1^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L1_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">971</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^853U2 (EL2624) New for FCA^Channel 2^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L1_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">972</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^853U2 (EL2624) New for FCA^Channel 3^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L1_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">973</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^853U2 (EL2624) New for FCA^Channel 4^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L1_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">974</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L1_U3</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">8</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L1_U3</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">8</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L1_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">978</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^834U2 (EL1024) New for FCA^Channel 1^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L1_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">979</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^834U2 (EL1024) New for FCA^Channel 2^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L1_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">980</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^834U2 (EL1024) New for FCA^Channel 3^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L1_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">981</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^834U2 (EL1024) New for FCA^Channel 4^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L1_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">982</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L1_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">983</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L1_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">975</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^854U2 (EL2624) New for FCA^Channel 1^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L1_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">976</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^854U2 (EL2624) New for FCA^Channel 2^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L1_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">977</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^854U2 (EL2624) New for FCA^Channel 3^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L1_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">978</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^854U2 (EL2624) New for FCA^Channel 4^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L1_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">979</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L1_U4</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">12</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L1_U4</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">12</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L1_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">984</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^835U2 (EL1024) New For FCA^Channel 1^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L1_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">985</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^835U2 (EL1024) New For FCA^Channel 2^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L1_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">986</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^835U2 (EL1024) New For FCA^Channel 3^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L1_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">987</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^835U2 (EL1024) New For FCA^Channel 4^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L1_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">988</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L1_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">989</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L1_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">980</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^855U2 (EL2624) New for FCA^Channel 1^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L1_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">981</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^855U2 (EL2624) New for FCA^Channel 2^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L1_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">982</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^855U2 (EL2624) New for FCA^Channel 3^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L1_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">983</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^855U2 (EL2624) New for FCA^Channel 4^Output]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L1_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">984</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L1_U5</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">16</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L1_U5</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">16</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L2_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">990</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^832U2 (EL1024)^Channel 1^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L2_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">991</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^832U2 (EL1024)^Channel 2^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L2_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">992</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^832U2 (EL1024)^Channel 3^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L2_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">993</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^832U2 (EL1024)^Channel 4^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L2_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">994</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L2_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">995</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L2_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">985</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L2_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">986</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L2_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">987</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L2_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">988</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L2_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">989</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L2_U1</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">20</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L2_U1</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">20</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L2_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">996</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L2_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">997</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L2_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">998</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L2_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">999</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L2_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1000</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L2_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1001</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L2_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">990</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L2_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">991</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L2_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">992</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L2_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">993</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L2_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">994</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L2_U2</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">24</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L2_U2</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">24</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L2_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1002</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L2_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1003</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L2_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1004</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L2_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1005</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L2_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1006</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L2_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1007</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L2_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">995</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L2_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">996</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L2_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">997</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L2_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">998</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L2_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">999</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L2_U3</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">28</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L2_U3</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">28</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L2_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1008</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L2_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1009</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L2_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1010</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L2_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1011</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L2_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1012</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L2_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1013</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L2_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1000</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L2_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1001</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L2_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1002</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L2_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1003</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L2_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1004</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L2_U4</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">32</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L2_U4</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">32</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L2_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1014</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L2_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1015</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L2_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1016</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L2_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1017</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L2_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1018</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L2_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1019</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L2_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1005</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L2_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1006</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L2_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1007</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L2_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1008</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L2_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1009</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L2_U5</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">36</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L2_U5</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">36</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L3_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1020</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^833U2 (EL1024) New for FCA^Channel 1^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L3_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1021</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^833U2 (EL1024) New for FCA^Channel 2^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L3_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1022</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^833U2 (EL1024) New for FCA^Channel 3^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L3_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1023</IOffset>
+			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 1 (EtherCAT)^830U2 (EM105)^833U2 (EL1024) New for FCA^Channel 4^Input]]>
+					</Value>
+				</Property>
+			</Properties>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L3_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1024</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L3_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1025</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L3_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1010</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L3_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1011</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L3_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1012</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L3_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1013</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L3_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1014</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L3_U1</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">40</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L3_U1</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">40</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L3_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1026</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L3_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1027</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L3_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1028</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L3_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1029</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L3_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1030</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L3_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1031</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L3_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1015</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L3_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1016</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L3_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1017</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L3_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1018</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L3_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1019</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L3_U2</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">44</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L3_U2</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">44</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L3_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1032</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L3_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1033</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L3_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1034</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L3_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1035</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L3_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1036</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L3_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1037</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L3_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1020</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L3_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1021</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L3_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1022</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L3_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1023</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L3_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1024</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L3_U3</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">48</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L3_U3</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">48</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L3_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1038</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L3_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1039</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L3_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1040</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L3_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1041</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L3_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1042</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L3_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1043</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L3_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1025</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L3_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1026</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L3_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1027</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L3_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1028</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L3_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1029</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L3_U4</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">52</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L3_U4</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">52</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L3_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1044</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L3_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1045</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L3_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1046</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L3_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1047</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L3_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1048</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L3_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1049</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L3_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1030</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L3_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1031</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L3_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1032</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L3_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1033</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L3_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1034</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L3_U5</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">56</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L3_U5</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">56</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L4_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1050</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L4_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1051</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L4_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1052</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L4_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1053</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L4_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1054</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L4_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1055</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L4_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1035</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L4_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1036</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L4_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1037</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L4_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1038</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L4_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1039</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L4_U1</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">60</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L4_U1</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">60</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L4_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1056</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L4_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1057</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L4_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1058</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L4_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1059</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L4_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1060</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L4_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1061</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L4_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1040</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L4_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1041</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L4_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1042</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L4_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1043</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L4_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1044</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L4_U2</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">64</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L4_U2</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">64</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L4_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1062</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L4_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1063</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L4_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1064</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L4_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1065</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L4_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1066</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L4_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1067</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L4_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1045</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L4_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1046</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L4_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1047</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L4_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1048</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L4_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1049</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L4_U3</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">68</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L4_U3</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">68</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L4_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1068</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L4_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1069</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L4_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1070</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L4_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1071</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L4_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1072</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L4_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1073</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L4_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1050</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L4_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1051</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L4_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1052</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L4_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1053</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L4_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1054</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L4_U4</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">72</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L4_U4</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">72</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L4_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1074</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L4_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1075</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L4_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1076</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L4_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1077</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L4_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1078</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L4_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1079</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L4_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1055</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L4_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1056</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L4_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1057</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L4_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1058</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L4_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1059</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L4_U5</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">76</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L4_U5</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">76</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L5_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1080</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L5_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1081</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L5_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1082</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L5_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1083</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L5_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1084</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L5_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1085</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L5_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1060</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L5_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1061</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L5_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1062</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L5_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1063</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L5_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1064</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L5_U1</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">80</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L5_U1</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">80</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L5_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1086</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L5_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1087</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L5_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1088</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L5_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1089</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L5_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1090</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L5_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1091</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L5_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1065</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L5_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1066</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L5_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1067</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L5_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1068</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L5_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1069</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L5_U2</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">84</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L5_U2</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">84</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L5_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1092</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L5_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1093</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L5_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1094</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L5_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1095</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L5_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1096</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L5_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1097</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L5_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1070</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L5_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1071</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L5_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1072</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L5_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1073</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L5_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1074</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L5_U3</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">88</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L5_U3</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">88</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L5_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1098</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L5_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1099</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L5_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1100</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L5_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1101</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L5_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1102</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L5_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1103</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L5_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1075</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L5_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1076</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L5_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1077</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L5_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1078</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L5_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1079</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L5_U4</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">92</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L5_U4</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">92</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L5_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1104</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L5_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1105</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L5_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1106</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L5_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1107</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L5_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1108</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L5_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1109</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L5_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1080</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L5_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1081</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L5_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1082</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L5_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1083</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L5_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1084</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L5_U5</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">96</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L5_U5</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">96</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L6_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1110</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L6_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1111</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L6_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1112</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L6_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1113</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L6_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1114</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L6_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1115</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L6_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1085</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L6_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1086</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L6_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1087</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L6_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1088</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L6_U1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1089</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L6_U1</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">100</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L6_U1</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">100</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L6_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1116</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L6_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1117</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L6_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1118</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L6_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1119</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L6_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1120</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L6_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1121</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L6_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1090</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L6_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1091</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L6_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1092</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L6_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1093</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L6_U2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1094</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L6_U2</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">104</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L6_U2</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">104</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L6_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1122</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L6_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1123</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L6_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1124</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L6_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1125</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L6_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1126</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L6_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1127</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L6_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1095</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L6_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1096</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L6_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1097</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L6_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1098</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L6_U3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1099</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L6_U3</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">108</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L6_U3</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">108</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L6_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1128</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L6_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1129</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L6_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1130</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L6_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1131</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L6_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1132</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L6_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1133</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L6_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1100</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L6_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1101</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L6_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1102</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L6_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1103</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L6_U4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1104</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L6_U4</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">112</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L6_U4</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">112</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFP_L6_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Ready For Production]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1134</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giPDS_L6_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product DownStream]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1135</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSPS_L6_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sterideal Production Stop]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1136</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giRFW_L6_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Request For Water]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1137</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giSBS_L6_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Steam Barrier Sterile]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1138</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giFCA_L6_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Filler CIP Active]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1139</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goUST_L6_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Unit Sterile conditions]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1105</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goPAM_L6_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Product At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1106</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goWAM_L6_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Water At Machine]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1107</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCIP_L6_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Cleaning In Place]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1108</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.goCSB_L6_U5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Clean Steam Barrier]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset VarConfig="Changeable">1109</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ifFPR_L6_U5</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal from Downstream Unit, Filling Pressure Request]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">116</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.ofLVL_L6_U5</Name>
+			<Type>REAL</Type>
+			<Comment>
+				<![CDATA[Floating Point signal to Downstream Unit, Level Tank]]>
+			</Comment>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">116</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giS1L1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sensor 01  Line 1]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1140</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giS1L2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sensor 01  Line 2]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1141</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giS1L3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sensor 01  Line 3]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1142</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giS1L4</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sensor 01  Line 4]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1143</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giS1L5</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sensor 01  Line 5]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1144</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.giS1L6</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[Sensor 01  Line 6]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset VarConfig="Changeable">1145</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+	</Symbols>
+	<VarConfigs>
+		<VarConfig>
+			<Name Static="Input" TaskPrio="1">MAIN.fbInterComm.arrComm_In</Name>
+			<Type Decoration="20010191">ARRAY [0..63] OF UINT</Type>
+			<IGroup>61472</IGroup>
+			<IOffset VarConfig="Changeable">144</IOffset>
+			<BitSize>1024</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIPC^Sterideal_N.00461.02 FCA^Standard^Outputs^MAIN.fbInterComm.arrComm_Out]]>
+					</Value>
+				</Property>
+			</Properties>
+			<Parent>
+				<Name SubItem="arrComm_In">MAIN.fbInterComm</Name>
+				<Type Decoration="1007BD37">FB_InterComm</Type>
+			</Parent>
+		</VarConfig>
+		<VarConfig>
+			<Name Static="Output" TaskPrio="1">MAIN.fbInterComm.arrComm_Out</Name>
+			<Type Decoration="20010191">ARRAY [0..63] OF UINT</Type>
+			<IGroup>61488</IGroup>
+			<IOffset VarConfig="Changeable">139</IOffset>
+			<BitSize>1024</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIPC^Sterideal_N.00461.02 FCA^Standard^Inputs^MAIN.fbInterComm.arrComm_In]]>
+					</Value>
+				</Property>
+			</Properties>
+			<Parent>
+				<Name SubItem="arrComm_Out">MAIN.fbInterComm</Name>
+				<Type Decoration="1007BD37">FB_InterComm</Type>
+			</Parent>
+		</VarConfig>
+	</VarConfigs>
+</PlcProjectInfo>
